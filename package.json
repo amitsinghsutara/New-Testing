@@ -4,14 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "release":"release-it",
+    "release": "release-it",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@release-it/conventional-changelog": "^8.0.1",
     "release-it": "^17.2.0"
-    
   },
   "release-it": {
     "git": {
@@ -40,5 +40,7 @@
             {}
           ]
         }
-      }}}
+      }
+    }
+  }
 }
