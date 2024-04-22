@@ -3,11 +3,12 @@ name: Generate Changelog
 on:
   push:
     branches:
-      - main
+      - Amit_Testing
 
 jobs:
   generate-changelog:
     runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'  # Trigger only when pushing to main branch
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
