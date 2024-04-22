@@ -1,0 +1,19 @@
+name: Generate Changelog
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  generate-changelog:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+      
+      - name: Install Dependencies
+        run: npm install # or yarn install
+      
+      - name: Generate Changelog
+        run: npx conventional-changelog -p angular -i CHANGELOG.md -s
