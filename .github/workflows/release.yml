@@ -1,4 +1,4 @@
-name: List Files
+name: Send Empty File to Slack
 
 on:
   push:
@@ -6,14 +6,20 @@ on:
       - main
 
 jobs:
-  list_files:
+  send_to_slack:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
 
-      - name: List Files
-        run: |
-          find . -type f > file_list.txt
-          cat file_list.txt
+      - name: Create Empty File
+        run: touch empty.txt
+
+      - name: Send File to Slack
+        uses: Ilshidur/action-slack@v3
+        with:
+          status: "Empty file sent!"
+          file: empty.txt
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
