@@ -10,6 +10,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+
+      - name: List Files in Workspace
+        run: ls -la
+        working-directory: ${{ github.workspace }}
+
+
       - name: Read CHANGELOG.md file
         id: read_changelog
         run: |
