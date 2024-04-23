@@ -15,6 +15,7 @@ jobs:
         run: |
           changelog=$(cat CHANGELOG.md)
           echo "::set-output name=changelog::$changelog"
+        working-directory: ${{ github.workspace }}
 
       - name: Send Changelog to Slack
         uses: slackapi/slack-github-action@v1.26.0
