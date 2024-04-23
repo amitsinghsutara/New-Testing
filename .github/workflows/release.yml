@@ -16,7 +16,11 @@ jobs:
         run: npm install # or yarn install
 
       - name: Generate Changelog
+        id: generate_changelog
         run: npx conventional-changelog -p angular -i CHANGELOG.md -s
+
+      - name: Debug
+        run: ls -l
 
       - name: Send Changelog to Slack
         uses: act10ns/slack@v2
