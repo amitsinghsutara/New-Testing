@@ -19,14 +19,7 @@ jobs:
           payload: |
             {
               "text": "Sending an empty file to Slack",
-              "attachments": [
-                {
-                  "text": "Empty file",
-                  "fallback": "Empty file",
-                  "title": "Empty File",
-                  "title_link": "https://github.com/${{ github.repository }}/blob/${{ github.sha }}/empty.txt"
-                }
-              ]
+              "files": ["empty.txt"]
             }
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
