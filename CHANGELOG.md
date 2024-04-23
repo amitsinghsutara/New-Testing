@@ -1,5 +1,17 @@
 
 
+## [1.1.0](https://github.com/amitsinghsutara/New-Testing/compare/v1.0.7...v1.1.0) (2024-04-23)
+
+
+### Features
+
+* Added 9th line! ([f0adb71](https://github.com/amitsinghsutara/New-Testing/commit/f0adb71752e1e9240f4a9c6d2f25d42d9e95edbb))
+
+
+### Bug Fixes
+
+* Added 10th line! ([946b7dd](https://github.com/amitsinghsutara/New-Testing/commit/946b7dd19c9cac6b347f2978c7cd4b5119bb311a))
+
 ## [1.0.7](https://github.com/amitsinghsutara/New-Testing/compare/v1.0.6...v1.0.7) (2024-04-23)
 
 
