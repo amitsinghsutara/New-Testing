@@ -19,7 +19,7 @@ jobs:
       - name: Read CHANGELOG.md file
         id: read_changelog
         run: |
-          changelog=$(cat '../../CHANGELOG.md')
+          changelog=$(cat './CHANGELOG.md')
           echo "::set-output name=changelog::$changelog"
         working-directory: ${{ github.workspace }}
 
