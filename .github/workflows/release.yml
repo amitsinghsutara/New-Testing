@@ -1,29 +1,20 @@
-name: Send Changelog to Slack
+- name: Read CHANGELOG.md file
+  id: read_changelog
+  run: |
+    changelog=$(cat CHANGELOG.md)
+    echo "::set-output name=changelog::$changelog"
 
-on:
-  release:
-    types:
-      - created
-
-jobs:
-  send_to_slack:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v2
-
-      - name: Read Changelog
-        id: read_changelog
-        run: echo "::set-output name=changelog::$(cat CHANGELOG.md)"
-
-      - name: Send Changelog to Slack
-        uses: slackapi/slack-github-action@v1
-        with:
-          text: |
-            New release published! Here is the changelog:
-            ```
-            ${{ steps.read_changelog.outputs.changelog }}
-            ```
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+- name: Send Changelog to Slack
+  uses: slackapi/slack-github-action@v1.26.0
+  with:
+    payload: |
+      {
+        "text": "New release published! Here is the changelog:",
+        "attachments": [
+          {
+            "text": "${{ steps.read_changelog.outputs.changelog }}"
+          }
+        ]
+      }
+  env:
+    SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
