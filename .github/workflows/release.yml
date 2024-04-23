@@ -1,39 +1,25 @@
-name: Send Changelog to Slack
+name: Send Empty File to Slack
 
 on:
-  release:
-    types:
-      - created
+  push:
+    branches:
+      - main
 
 jobs:
   send_to_slack:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Create Empty File
+        run: touch empty.txt
 
-      - name: List Files in Workspace
-        run: ls -la
-        working-directory: ${{ github.workspace }}
-
-
-      - name: Read CHANGELOG.md file
-        id: read_changelog
-        run: |
-          changelog=$(cat './CHANGELOG.md')
-          echo "::set-output name=changelog::$changelog"
-        working-directory: ${{ github.workspace }}
-
-      - name: Send Changelog to Slack
+      - name: Send Empty File to Slack
         uses: slackapi/slack-github-action@v1.26.0
         with:
-          payload: |
-            {
-              "text": "New release published! Here is the changelog:",
-              "attachments": [
-                {
-                  "text": "${{ steps.read_changelog.outputs.changelog }}"
-                }
-              ]
-            }
+          text: |
+            Here is the empty file:
+            ```
+            $(cat empty.txt)
+            ```
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
