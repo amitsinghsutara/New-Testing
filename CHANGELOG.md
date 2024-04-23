@@ -1,5 +1,12 @@
 
 
+## [1.3.0](https://github.com/amitsinghsutara/New-Testing/compare/v1.2.4...v1.3.0) (2024-04-23)
+
+
+### Features
+
+* Updated Release.yml! ([91d1949](https://github.com/amitsinghsutara/New-Testing/commit/91d194968d97401ddbfa564afe4e137ff1f00614))
+
 ## [1.2.4](https://github.com/amitsinghsutara/New-Testing/compare/v1.2.3...v1.2.4) (2024-04-23)
 
 
