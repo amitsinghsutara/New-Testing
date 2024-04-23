@@ -1,5 +1,12 @@
 
 
+## [1.1.1](https://github.com/amitsinghsutara/New-Testing/compare/v1.1.0...v1.1.1) (2024-04-23)
+
+
+### Bug Fixes
+
+* Updated release.yml! ([ccb2069](https://github.com/amitsinghsutara/New-Testing/commit/ccb2069b70f6a1c2924f7f6e65c60e083be80814))
+
 ## [1.1.0](https://github.com/amitsinghsutara/New-Testing/compare/v1.0.7...v1.1.0) (2024-04-23)
 
 
