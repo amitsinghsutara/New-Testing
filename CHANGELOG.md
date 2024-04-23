@@ -1,5 +1,12 @@
 
 
+## [1.3.6](https://github.com/amitsinghsutara/New-Testing/compare/v1.3.5...v1.3.6) (2024-04-23)
+
+
+### Bug Fixes
+
+* removed generate changelog process! ([ec7e7eb](https://github.com/amitsinghsutara/New-Testing/commit/ec7e7eb7db900aa8ca519430ac1586aeb52cb515))
+
 ## [1.3.5](https://github.com/amitsinghsutara/New-Testing/compare/v1.3.4...v1.3.5) (2024-04-23)
 
 
