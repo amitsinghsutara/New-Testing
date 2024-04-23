@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v1.26
+        uses: actions/checkout@v1
 
       - name: Create Empty File
         run: touch empty.txt
