@@ -12,20 +12,17 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v2
 
-      - name: Install Dependencies
-        run: npm install # or yarn install
-
       - name: Generate Changelog
-        run: npx conventional-changelog -p angular -i CHANGELOG.md -s
+        run: npx conventional-changelog -p angular -i changelog.md -s
 
-      - name: Read Changelog Content
-        id: read_changelog
-        run: echo "::set-output name=changelog_content::$(cat CHANGELOG.md)"
+      - name: Create Release Notes Text File
+        run: cat changelog.md > release_notes.txt
 
-      - name: Send Changelog to Slack
-        uses: act10ns/slack@v2
+      - name: Send Release Notes to Slack
+        uses: ilshidur/action-slack@v3
         with:
-          status: "New release published! Here is the changelog:"
-          text: ${{ steps.read_changelog.outputs.changelog_content }}
+          status: "New release published! Here are the release notes:"
+          text: |
+            $(cat release_notes.txt)
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
