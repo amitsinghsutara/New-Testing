@@ -1,5 +1,12 @@
 
 
+## [1.2.4](https://github.com/amitsinghsutara/New-Testing/compare/v1.2.3...v1.2.4) (2024-04-23)
+
+
+### Bug Fixes
+
+*  Added  12th line! ([e0cce2b](https://github.com/amitsinghsutara/New-Testing/commit/e0cce2b0d0c56612618da9453498cb95e438ccf9))
+
 ## [1.2.3](https://github.com/amitsinghsutara/New-Testing/compare/v1.2.2...v1.2.3) (2024-04-23)
 
 
