@@ -17,7 +17,7 @@ jobs:
         run: npx conventional-changelog -p angular -i changelog.md -s
 
       - name: Send Changelog to Slack
-        uses: slackapi/slack-github-action@v3
+        uses: slackapi/slack-github-action@v1
         with:
           text: |
             New release published! Here is the changelog:
