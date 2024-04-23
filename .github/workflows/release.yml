@@ -1,11 +1,12 @@
-name: Notify on Release
+name: Send Changelog to Slack
 
 on:
   release:
-    types: [published]
+    types:
+      - created
 
 jobs:
-  notify:
+  send_to_slack:
     runs-on: ubuntu-latest
 
     steps:
@@ -15,14 +16,13 @@ jobs:
       - name: Generate Changelog
         run: npx conventional-changelog -p angular -i changelog.md -s
 
-      - name: Create Release Notes Text File
-        run: cat changelog.md > release_notes.txt
-
-      - name: Send Release Notes to Slack
-        uses: ilshidur/action-slack@v2
+      - name: Send Changelog to Slack
+        uses: slackapi/slack-github-action@v3
         with:
-          status: "New release published! Here are the release notes:"
           text: |
-            $(cat release_notes.txt)
+            New release published! Here is the changelog:
+            ```
+            $(cat changelog.md)
+            ```
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
