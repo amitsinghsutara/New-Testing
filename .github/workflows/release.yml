@@ -15,7 +15,7 @@ jobs:
 
       - name: Read Changelog
         id: read_changelog
-        run: echo "::set-output name=changelog::$(cat changelog.md)"
+        run: echo "::set-output name=changelog::$(cat CHANGELOG.md)"
 
       - name: Send Changelog to Slack
         uses: slackapi/slack-github-action@v1
