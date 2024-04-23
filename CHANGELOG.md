@@ -1,5 +1,12 @@
 
 
+## [1.2.2](https://github.com/amitsinghsutara/New-Testing/compare/v1.2.1...v1.2.2) (2024-04-23)
+
+
+### Bug Fixes
+
+* Added benug as well in release.yml! ([d99595c](https://github.com/amitsinghsutara/New-Testing/commit/d99595c73c9a7029995113155b9e59f9d2eb0412))
+
 ## [1.2.1](https://github.com/amitsinghsutara/New-Testing/compare/v1.2.0...v1.2.1) (2024-04-23)
 
 
