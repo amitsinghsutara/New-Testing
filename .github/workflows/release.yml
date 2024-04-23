@@ -16,10 +16,17 @@ jobs:
       - name: Send Empty File to Slack
         uses: slackapi/slack-github-action@v1.26.0
         with:
-          text: |
-            Here is the empty file:
-            ```
-            $(cat empty.txt)
-            ```
+          payload: |
+            {
+              "text": "Sending an empty file to Slack",
+              "attachments": [
+                {
+                  "text": "Empty file",
+                  "fallback": "Empty file",
+                  "title": "Empty File",
+                  "title_link": "https://github.com/${{ github.repository }}/blob/${{ github.sha }}/empty.txt"
+                }
+              ]
+            }
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
