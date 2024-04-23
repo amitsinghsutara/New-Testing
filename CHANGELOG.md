@@ -1,5 +1,12 @@
 
 
+## [1.0.6](https://github.com/amitsinghsutara/New-Testing/compare/v1.0.5...v1.0.6) (2024-04-23)
+
+
+### Bug Fixes
+
+* Added 6th line! ([3baaadb](https://github.com/amitsinghsutara/New-Testing/commit/3baaadb0e9fad997231c1e064f23df21b5c87c54))
+
 ## [1.0.5](https://github.com/amitsinghsutara/New-Testing/compare/v1.0.4...v1.0.5) (2024-04-23)
 
 ## [1.0.4](https://github.com/amitsinghsutara/New-Testing/compare/v1.0.3...v1.0.4) (2024-04-23)
