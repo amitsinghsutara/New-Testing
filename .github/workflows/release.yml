@@ -16,18 +16,16 @@ jobs:
         run: npm install # or yarn install
 
       - name: Generate Changelog
-        id: generate_changelog
         run: npx conventional-changelog -p angular -i CHANGELOG.md -s
 
-      - name: Debug
-        run: ls -l
+      - name: Read Changelog Content
+        id: read_changelog
+        run: echo "::set-output name=changelog_content::$(cat CHANGELOG.md)"
 
       - name: Send Changelog to Slack
         uses: act10ns/slack@v2
         with:
           status: "New release published! Here is the changelog:"
-          text: |
-            $(cat CHANGELOG.md)
-            ${steps.generate_changelog.outputs.stdout}
+          text: ${{ steps.read_changelog.outputs.changelog_content }}
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
