@@ -1,5 +1,12 @@
 
 
+## [1.2.0](https://github.com/amitsinghsutara/New-Testing/compare/v1.1.5...v1.2.0) (2024-04-23)
+
+
+### Features
+
+* Added 11th line! ([ebd95c1](https://github.com/amitsinghsutara/New-Testing/commit/ebd95c18e4b263cbadc8e26e92eb07aa2ef09fc2))
+
 ## [1.1.5](https://github.com/amitsinghsutara/New-Testing/compare/v1.1.4...v1.1.5) (2024-04-23)
 
 
