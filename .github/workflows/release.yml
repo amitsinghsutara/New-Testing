@@ -19,8 +19,8 @@ jobs:
         run: npx conventional-changelog -p angular -i CHANGELOG.md -s
 
       - name: Send Changelog to Slack
-        uses: ilshidur/action-slack@v2
+        uses: ilshidur/action-slack@v3
         with:
-          args: '{"text": "New release published! Here is the changelog:", "attachments": [{"color": "#36a64f", "text": "```' + '$(cat CHANGELOG.md)' + '```"}]}'
+          args: '{"text": "New release published! Here is the changelog:", "attachments": [{"color": "#36a64f", "text": "```" + steps.generate_changelog.outputs.stdout + "```"}]}'
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
