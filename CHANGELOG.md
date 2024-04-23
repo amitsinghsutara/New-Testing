@@ -1,5 +1,12 @@
 
 
+## [1.1.4](https://github.com/amitsinghsutara/New-Testing/compare/v1.1.3...v1.1.4) (2024-04-23)
+
+
+### Bug Fixes
+
+* Updated release.yml! ([7efd802](https://github.com/amitsinghsutara/New-Testing/commit/7efd802b96ee6f1ab49c3cfbf0a0086f0505d139))
+
 ## [1.1.3](https://github.com/amitsinghsutara/New-Testing/compare/v1.1.2...v1.1.3) (2024-04-23)
 
 
