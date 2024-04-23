@@ -1,20 +1,26 @@
-name: Generate Changelog
+name: Notify on Release
 
 on:
-  push:
-    branches:
-      - main
+  release:
+    types: [published]
 
 jobs:
-  generate-changelog:
+  notify:
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'  # Trigger only when pushing to main branch
+
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
-      
+
       - name: Install Dependencies
         run: npm install # or yarn install
-      
+
       - name: Generate Changelog
         run: npx conventional-changelog -p angular -i CHANGELOG.md -s
+
+      - name: Send Changelog to Slack
+        uses: ilshidur/action-slack@v3
+        with:
+          args: '{"text": "New release published! Here is the changelog:", "attachments": [{"color": "#36a64f", "text": "```' + '$(cat CHANGELOG.md)' + '```"}]}'
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
