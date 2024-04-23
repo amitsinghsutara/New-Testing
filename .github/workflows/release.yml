@@ -13,7 +13,9 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v2
 
-      
+      - name: Read Changelog
+        id: read_changelog
+        run: echo "::set-output name=changelog::$(cat changelog.md)"
 
       - name: Send Changelog to Slack
         uses: slackapi/slack-github-action@v1
@@ -21,7 +23,7 @@ jobs:
           text: |
             New release published! Here is the changelog:
             ```
-            $(cat changelog.md)
+            ${{ steps.read_changelog.outputs.changelog }}
             ```
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
