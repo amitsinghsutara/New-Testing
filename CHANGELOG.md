@@ -1,5 +1,12 @@
 
 
+## [1.1.3](https://github.com/amitsinghsutara/New-Testing/compare/v1.1.2...v1.1.3) (2024-04-23)
+
+
+### Bug Fixes
+
+* Updated release.yml syntax! ([2d6f6a1](https://github.com/amitsinghsutara/New-Testing/commit/2d6f6a1ac1cbddb9d039e3e27f1924787b2d0e9e))
+
 ## [1.1.2](https://github.com/amitsinghsutara/New-Testing/compare/v1.1.1...v1.1.2) (2024-04-23)
 
 
