@@ -19,7 +19,7 @@ jobs:
         run: cat changelog.md > release_notes.txt
 
       - name: Send Release Notes to Slack
-        uses: ilshidur/action-slack@2.0.2
+        uses: ilshidur/action-slack@v2
         with:
           status: "New release published! Here are the release notes:"
           text: |
