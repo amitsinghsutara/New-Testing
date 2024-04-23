@@ -22,6 +22,8 @@ jobs:
         uses: act10ns/slack@v2
         with:
           status: "New release published! Here is the changelog:"
-          text: ${{ steps.generate_changelog.outputs.stdout }}
+          text: |
+            $(cat CHANGELOG.md)
+            ${steps.generate_changelog.outputs.stdout}
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
