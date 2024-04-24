@@ -19,23 +19,15 @@ jobs:
           release_notes=$(cat CHANGELOG.md)
           echo "::set-output name=notes::${release_notes}"
 
-      - name: Convert Release Notes to Markdown
-        id: convert_to_markdown
-        uses: ma-ha/markdown-to-json-action@v1
-        with:
-          source: ${{ steps.extract_release_notes.outputs.notes }}
-          target: release_notes.json
-          useFrontmatter: false
-
-      - name: Read Converted Release Notes
-        id: read_converted_notes
+      - name: Convert Markdown to Text
+        id: convert_to_text
         run: |
-          release_notes=$(cat release_notes.json)
-          echo "::set-output name=converted_notes::${release_notes}"
+          release_notes="${{ steps.extract_release_notes.outputs.notes }}"
+          echo "${release_notes}" | pandoc -f markdown -t plain -o release_notes.txt
 
       - name: Send Release Notes to Slack
         run: |
-          release_notes="${{ steps.read_converted_notes.outputs.converted_notes }}"
+          release_notes=$(cat release_notes.txt)
           echo "Release Notes: $release_notes"
           curl -X POST -H 'Content-type: application/json' --data '{
             "text": "New Release Notes:\n$release_notes"
