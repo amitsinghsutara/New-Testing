@@ -1,5 +1,13 @@
 
 
+## [1.3.26](https://github.com/amitsinghsutara/New-Testing/compare/v1.3.25...v1.3.26) (2024-04-24)
+
+
+### Bug Fixes
+
+* Added 14th line! ([df0b52a](https://github.com/amitsinghsutara/New-Testing/commit/df0b52a8ba73571cd155550c2b36308053b6ad47))
+* Fixed release.yml! ([eb3e0b7](https://github.com/amitsinghsutara/New-Testing/commit/eb3e0b7148d302667de34d40db1a23625d20cab0))
+
 ## [1.3.25](https://github.com/amitsinghsutara/New-Testing/compare/v1.3.24...v1.3.25) (2024-04-24)
 
 
