@@ -1,5 +1,12 @@
 
 
+## [1.7.1](https://github.com/amitsinghsutara/New-Testing/compare/v1.7.0...v1.7.1) (2024-04-24)
+
+
+### Bug Fixes
+
+* Another try! ([4d86685](https://github.com/amitsinghsutara/New-Testing/commit/4d86685d431ea253d16077d82590d39448efb0c6))
+
 ## [1.7.0](https://github.com/amitsinghsutara/New-Testing/compare/v1.6.7...v1.7.0) (2024-04-24)
 
 
