@@ -1,30 +1,23 @@
-name: Send Release Notes to Slack
+name: Create Release
 
 on:
-  release:
-    types:
-      - created
+  push:
+    tags:
+      - '*.*.*'
 
 jobs:
-  send_to_slack:
+  release:
+    name: Create release
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v2
-
-      - name: Extract Release Notes
-        id: extract_release_notes
-        run: |
-          release_notes=$(cat CHANGELOG.md)
-          echo "::set-output name=notes::${release_notes}"
-
-      - name: Send Release Notes to Slack
-        run: |
-          release_notes="${{ steps.extract_release_notes.outputs.notes }}"
-          echo "Release Notes: $release_notes"
-          curl -X POST -H 'Content-type: application/json' --data '{
-            "text": "New Release Notes:\n$release_notes"
-          }' $SLACK_WEBHOOK_URL
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Extract release notes
+        id: extract-release-notes
+        uses: ffurrer2/extract-release-notes@v2
+      - name: Log extracted release notes
+        run: echo "Extracted release notes: ${{ steps.extract-release-notes.outputs.release_notes }}"
+      - name: Create release
         env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          GITHUB_TOKEN: ${{ secrets.TOOKEN }}
+        run: gh release create --notes '${{ steps.extract-release-notes.outputs.release_notes }}' --title ${{ github.ref_name }} ${{ github.ref_name }}
