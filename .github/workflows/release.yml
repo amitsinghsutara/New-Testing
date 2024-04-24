@@ -5,21 +5,15 @@ on:
     branches:
       - main
 
+
 jobs:
-  send_to_slack:
+  release:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v1
-
-      - name: Create Empty File
-        run: touch empty.txt
-
-      - name: Send File to Slack
-        uses: Ilshidur/action-slack@v3
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Extract release notes
+        id: extract-release-notes
+        uses: ffurrer2/extract-release-notes@v2
         with:
-          status: "Empty file sent!"
-          file: empty.txt
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          changelog_file: MY_CHANGELOG.md
