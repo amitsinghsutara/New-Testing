@@ -1,22 +1,20 @@
-name: Send Release Notes to Slack
+name: Convert Markdown to JSON
 
 on:
-  release:
-    types:
-      - created
+  push:
+    branches:
+      - main
 
 jobs:
-  send_to_slack:
+  convert:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
 
-      - name: Install Pandoc
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y pandoc
+      - name: Install curl
+        run: sudo apt-get update && sudo apt-get install -y curl
 
       - name: Extract Release Notes
         id: extract_release_notes
@@ -24,18 +22,15 @@ jobs:
           release_notes=$(cat CHANGELOG.md)
           echo "::set-output name=notes::${release_notes}"
 
-      - name: Convert Markdown to Text
-        id: convert_to_text
+      - name: Convert Markdown to JSON
+        id: convert_md_to_json
         run: |
-          release_notes="${{ steps.extract_release_notes.outputs.notes }}"
-          echo "${release_notes}" | pandoc -f markdown -t plain -o release_notes.txt
+          markdown="${{ steps.extract_release_notes.outputs.notes }}"
+          json=$(curl -X POST -H "Content-Type: text/markdown" --data-binary "$markdown" https://api.github.com/markdown/raw)
+          echo "::set-output name=json::${json}"
 
-      - name: Send Release Notes to Slack
+      - name: Send JSON to Slack
         run: |
-          release_notes=$(cat release_notes.txt)
-          echo "Release Notes: $release_notes"
-          curl -X POST -H 'Content-type: application/json' --data '{
-            "text": "New Release Notes:\n$release_notes"
-          }' ${{ secrets.SLACK_WEBHOOK_URL }}
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          json="${{ steps.convert_md_to_json.outputs.json }}"
+          echo "Converted JSON: $json"
+          # Send JSON to Slack using curl or another method
