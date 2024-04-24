@@ -18,10 +18,13 @@ jobs:
         id: extract_release_notes
         uses: ffurrer2/extract-release-notes@v2
 
+      - name: Get version from package.json
+        run: echo ::set-env name=VERSION::$(node -pe "require('./package.json').version")
+
       - name: Send to Slack
         run: |
           curl -X POST -H 'Content-type: application/json' --data '{
-            "text": "New Release Notes:\nv${{env.version}}\n${{ steps.extract_release_notes.outputs.release_notes }}"
+            "text": "New Release Notes:\nv${{ env.VERSION }}\n${{ steps.extract_release_notes.outputs.release_notes }}"
           }' ${{ secrets.SLACK_WEBHOOK_URL }}
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
