@@ -21,8 +21,10 @@ jobs:
 
       - name: Send Release Notes to Slack
         run: |
+          release_notes="${{ steps.extract_release_notes.outputs.notes }}"
+          echo "Release Notes: $release_notes"
           curl -X POST -H 'Content-type: application/json' --data '{
-            "text": "New Release Notes:\n${{ steps.extract_release_notes.outputs.notes }}"
-          }' ${{ secrets.SLACK_WEBHOOK_URL }}
+            "text": "New Release Notes:\n$release_notes"
+          }' $SLACK_WEBHOOK_URL
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
