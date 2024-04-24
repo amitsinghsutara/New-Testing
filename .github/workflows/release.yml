@@ -23,16 +23,16 @@ jobs:
           validation_level: warn
           version: ${{ steps.tag_name.outputs.current_version }}
           path: ./CHANGELOG.md
-      - name: Create/update release
-        uses: ncipollo/release-action@v1
-        with:
-          tag: ${{ steps.changelog_reader.outputs.version }}
-          name: Release ${{ steps.changelog_reader.outputs.version }}
-          body: ${{ steps.changelog_reader.outputs.changes }}
-          prerelease: ${{ steps.changelog_reader.outputs.status == 'prereleased' }}
-          draft: ${{ steps.changelog_reader.outputs.status == 'unreleased' }}
-          allowUpdates: true
-          token: ${{ secrets.GITHUB_TOKEN }}
+      # - name: Create/update release
+      #   uses: ncipollo/release-action@v1
+      #   with:
+      #     tag: ${{ steps.changelog_reader.outputs.version }}
+      #     name: Release ${{ steps.changelog_reader.outputs.version }}
+      #     body: ${{ steps.changelog_reader.outputs.changes }}
+      #     prerelease: ${{ steps.changelog_reader.outputs.status == 'prereleased' }}
+      #     draft: ${{ steps.changelog_reader.outputs.status == 'unreleased' }}
+      #     allowUpdates: true
+      #     token: ${{ secrets.GITHUB_TOKEN }}
 
   notify_slack:
     name: Notify Slack
