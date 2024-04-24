@@ -1,5 +1,7 @@
 
 
+## [1.6.6](https://github.com/amitsinghsutara/New-Testing/compare/v1.6.5...v1.6.6) (2024-04-24)
+
 ## [1.6.5](https://github.com/amitsinghsutara/New-Testing/compare/v1.6.4...v1.6.5) (2024-04-24)
 
 
