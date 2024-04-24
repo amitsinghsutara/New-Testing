@@ -18,13 +18,16 @@ jobs:
         id: extract_release_notes
         uses: ffurrer2/extract-release-notes@v2
 
-      - name: Get version from package.json
-        run: echo "VERSION=$(node -pe 'require(\"./package.json\").version')" >> $GITHUB_ENV
+      - name: Parse Version
+        id: parse_version
+        run: |
+          version=$(echo "${{ steps.extract_release_notes.outputs.release_notes }}" | grep -oP '(?<=## \[)[\d.]+')
+          echo "::set-output name=version::$version"
 
       - name: Send to Slack
         run: |
           curl -X POST -H 'Content-type: application/json' --data '{
-            "text": "New Release Notes:\nv${{ env.VERSION }}\n${{ steps.extract_release_notes.outputs.release_notes }}"
+            "text": "New Release Notes:\nv${{ steps.parse_version.outputs.version }}\n${{ steps.extract_release_notes.outputs.release_notes }}"
           }' ${{ secrets.SLACK_WEBHOOK_URL }}
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
