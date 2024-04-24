@@ -1,33 +1,24 @@
-name: Convert Markdown to JSON
+name: Extract and Send Release Notes
 
 on:
-  push:
-    branches:
-      - main
+  release:
+    types: [published]
 
 jobs:
-  convert:
+  extract_and_send_notes:
+    name: Extract and Send Release Notes
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
 
       - name: Extract Release Notes
-        id: extract_release_notes
-        run: |
-          release_notes=$(cat CHANGELOG.md)
-          echo "::set-output name=notes::${release_notes}"
+        id: extract_notes
+        uses: CSchoel/release-notes-from-changelog@v1
 
-      - name: Convert Markdown to JSON
-        id: convert_md_to_json
-        run: |
-          markdown="${{ steps.extract_release_notes.outputs.notes }}"
-          json=$(curl -X POST -H "Content-Type: text/markdown" --data-binary "$markdown" https://api.github.com/markdown/raw)
-          echo "::set-output name=json::${json}"
-
-      - name: Send JSON to Slack
-        run: |
-          json="${{ steps.convert_md_to_json.outputs.json }}"
-          echo "Converted JSON: $json"
-          # Send JSON to Slack using curl or another method
+      - name: Send Release Notes to Slack
+        uses: slackapi/slack-github-action@v1.26.0
+        with:
+          text: "New Release Published!\nRelease Notes: ${steps.extract_notes.outputs.release_notes}"
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
