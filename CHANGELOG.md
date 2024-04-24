@@ -1,5 +1,17 @@
 
 
+## [1.4.0](https://github.com/amitsinghsutara/New-Testing/compare/v1.3.39...v1.4.0) (2024-04-24)
+
+
+### Features
+
+* New Approach! ([14c64d0](https://github.com/amitsinghsutara/New-Testing/commit/14c64d0b48f13ecfd75addfebeb2859f20f8c718))
+
+
+### Bug Fixes
+
+* additional Fixes! ([a5494f7](https://github.com/amitsinghsutara/New-Testing/commit/a5494f79ccc78ab6ad2c82cd2567c6717ae0ea90))
+
 ## [1.3.39](https://github.com/amitsinghsutara/New-Testing/compare/v1.3.38...v1.3.39) (2024-04-24)
 
 
