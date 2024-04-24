@@ -16,4 +16,4 @@ jobs:
         id: extract-release-notes
         uses: ffurrer2/extract-release-notes@v2
         with:
-          changelog_file: MY_CHANGELOG.md
+          changelog_file: CHANGELOG.md
