@@ -1,5 +1,13 @@
 
 
+## [1.5.0](https://github.com/amitsinghsutara/New-Testing/compare/v1.4.6...v1.5.0) (2024-04-24)
+
+
+### Features
+
+* Hey Rajesh  ;) ([11c9705](https://github.com/amitsinghsutara/New-Testing/commit/11c9705f9ce4da1ae79c8ac26f01a3dc5e623791))
+* hope you are doing well! ([02aeced](https://github.com/amitsinghsutara/New-Testing/commit/02aeced3db2d994252613c918500d9c1669cf003))
+
 ## [1.4.6](https://github.com/amitsinghsutara/New-Testing/compare/v1.4.5...v1.4.6) (2024-04-24)
 
 
