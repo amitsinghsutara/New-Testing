@@ -1,4 +1,4 @@
-name: Create Release and Notify Slack
+name: Notify Slack on Tag
 
 on:
   push:
@@ -6,43 +6,25 @@ on:
       - 'v*'
 
 jobs:
-  create_release:
-    name: Create Release
+  notify_slack:
+    name: Notify Slack
     runs-on: ubuntu-latest
     steps:
-      - name: Get version from tag
-        id: tag_name
-        run: echo "current_version=${GITHUB_REF#refs/tags/v}" >> $GITHUB_ENV
-        shell: bash
       - name: Checkout code
         uses: actions/checkout@v2
+
       - name: Get Changelog Entry
         id: changelog_reader
         uses: mindsers/changelog-reader-action@v2
         with:
           validation_level: warn
-          version: ${{ steps.tag_name.outputs.current_version }}
+          version: ${{ github.ref_name }}
           path: ./CHANGELOG.md
-      # - name: Create/update release
-      #   uses: ncipollo/release-action@v1
-      #   with:
-      #     tag: ${{ steps.changelog_reader.outputs.version }}
-      #     name: Release ${{ steps.changelog_reader.outputs.version }}
-      #     body: ${{ steps.changelog_reader.outputs.changes }}
-      #     prerelease: ${{ steps.changelog_reader.outputs.status == 'prereleased' }}
-      #     draft: ${{ steps.changelog_reader.outputs.status == 'unreleased' }}
-      #     allowUpdates: true
-      #     token: ${{ secrets.GITHUB_TOKEN }}
 
-  notify_slack:
-    name: Notify Slack
-    runs-on: ubuntu-latest
-    needs: create_release
-    steps:
       - name: Send Release Notes to Slack
         uses: slackapi/slack-github-action@v1
         with:
-          status: "New release published! Here are the release notes for version ${{ needs.create_release.outputs.tag_name.outputs.current_version }}:"
-          text: ${{ needs.create_release.outputs.changelog_reader.outputs.changes }}
+          status: "New tag published! Here are the release notes for version ${{ github.ref_name }}:"
+          text: ${{ steps.changelog_reader.outputs.changes }}
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
