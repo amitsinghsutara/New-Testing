@@ -1,5 +1,12 @@
 
 
+## [1.6.2](https://github.com/amitsinghsutara/New-Testing/compare/v1.6.1...v1.6.2) (2024-04-24)
+
+
+### Bug Fixes
+
+* Oops! ([749d67f](https://github.com/amitsinghsutara/New-Testing/commit/749d67f918259a23b235c3e852761eaaff6a2a61))
+
 ## [1.6.1](https://github.com/amitsinghsutara/New-Testing/compare/v1.6.0...v1.6.1) (2024-04-24)
 
 
