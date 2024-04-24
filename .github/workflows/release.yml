@@ -1,24 +1,30 @@
-name: Extract and Send Release Notes
+name: Send Release Notes to Slack
 
 on:
   release:
-    types: [published]
+    types:
+      - created
 
 jobs:
-  extract_and_send_notes:
-    name: Extract and Send Release Notes
+  send_to_slack:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
 
       - name: Extract Release Notes
-        id: extract_notes
-        uses: CSchoel/release-notes-from-changelog@v1
+        id: extract_release_notes
+        run: |
+          release_notes=$(cat CHANGELOG.md)
+          echo "::set-output name=notes::${release_notes}"
 
       - name: Send Release Notes to Slack
-        uses: slackapi/slack-github-action@v1.26.0
-        with:
-          text: "New Release Published!\nRelease Notes: ${steps.extract_notes.outputs.release_notes}"
+        run: |
+          release_notes="${{ steps.extract_release_notes.outputs.notes }}"
+          echo "Release Notes: $release_notes"
+          curl -X POST -H 'Content-type: application/json' --data '{
+            "text": "New Release Notes:\n$release_notes"
+          }' $SLACK_WEBHOOK_URL
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
