@@ -1,7 +1,7 @@
 name: Send Release Notes to Slack
 
 on:
-  release:
+  push:
     types:
       - created
 
@@ -18,13 +18,6 @@ jobs:
         run: |
           release_notes=$(cat CHANGELOG.md)
           echo "::set-output name=notes::${release_notes}"
-      - name: Send release
-        uses: ankur-lt/send-releases-to-slack@v1.1.0
-        with:
-          repo_display_name: 'Service Name'
-          webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}
-          body: ${{ steps.jsonChangelog.outputs.content }}
-          reverted_release: false
 
       - name: Send Release Notes to Slack
         run: |
@@ -32,6 +25,6 @@ jobs:
           echo "Release Notes: $release_notes"
           curl -X POST -H 'Content-type: application/json' --data '{
             "text": "New Release Notes:\n$release_notes"
-          }' $SLACK_WEBHOOK_URL
+          }' ${{ secrets.SLACK_WEBHOOK_URL }}
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
