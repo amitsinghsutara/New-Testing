@@ -1,4 +1,4 @@
-name: Extract Release Notes
+name: Send Release Notes to Slack
 
 on:
   push:
@@ -6,17 +6,22 @@ on:
       - '*.*.*'
 
 jobs:
-  extract_notes:
-    name: Extract release notes
+  send_to_slack:
+    name: Send Release Notes to Slack
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Extract release notes
-        id: extract-release-notes
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Extract Release Notes
+        id: extract_release_notes
         uses: ffurrer2/extract-release-notes@v2
-      - name: Create release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          gh release create --notes "Authorization: token ${{ secrets.TOKEN }}" "${{ steps.extract-release-notes.outputs.release_notes }}" --title "${{ github.ref_name }}" "${{ github.ref_name }}"
+
+      - name: Send to Slack
+        uses: Ilshidur/action-slack@v3
+        with:
+          webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}
+          text: |
+            New Release:
+            ${{ steps.extract_release_notes.outputs.release_notes }}
