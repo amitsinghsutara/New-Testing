@@ -19,9 +19,9 @@ jobs:
         uses: ffurrer2/extract-release-notes@v2
 
       - name: Send to Slack
-        uses: Ilshidur/action-slack@v2
-        with:
-          webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}
-          text: |
-            New Release:
-            ${{ steps.extract_release_notes.outputs.release_notes }}
+        run: |
+          curl -X POST -H 'Content-type: application/json' --data '{
+            "text": "New Release Notes:\n${{ steps.extract_release_notes.outputs.release_notes }}"
+          }' ${{ secrets.SLACK_WEBHOOK_URL }}
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
