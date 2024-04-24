@@ -1,5 +1,12 @@
 
 
+## [1.6.0](https://github.com/amitsinghsutara/New-Testing/compare/v1.5.0...v1.6.0) (2024-04-24)
+
+
+### Features
+
+* New Release notes Format! ([f26f85c](https://github.com/amitsinghsutara/New-Testing/commit/f26f85cb2fd53efd6e0fb6e945bc5f51939859dd))
+
 ## [1.5.0](https://github.com/amitsinghsutara/New-Testing/compare/v1.4.6...v1.5.0) (2024-04-24)
 
 
