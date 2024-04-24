@@ -19,7 +19,7 @@ jobs:
         uses: ffurrer2/extract-release-notes@v2
 
       - name: Get version from package.json
-        run: echo ::set-env name=VERSION::$(node -pe "require('./package.json').version")
+        run: echo "VERSION=$(node -pe 'require(\"./package.json\").version')" >> $GITHUB_ENV
 
       - name: Send to Slack
         run: |
