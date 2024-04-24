@@ -23,8 +23,8 @@ jobs:
         run: |
           release_notes="${{ steps.extract_release_notes.outputs.notes }}"
           echo "Release Notes: $release_notes"
-          curl -X POST -H 'Content-type: application/json' --data '{
-            "text": "New Release Notes:\n$release_notes"
-          }' $SLACK_WEBHOOK_URL
+          curl -X POST -H 'Content-type: application/json' --data "{
+            \"text\": \"New Release Notes: $release_notes\"
+          }" $SLACK_WEBHOOK_URL
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
