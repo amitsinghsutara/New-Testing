@@ -1,19 +1,30 @@
-name: Send Empty File to Slack
+name: Send Release Notes to Slack
 
 on:
   push:
     branches:
       - main
 
-
 jobs:
-  release:
+  send_to_slack:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Extract release notes
-        id: extract-release-notes
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Extract Release Notes
+        id: extract_release_notes
         uses: ffurrer2/extract-release-notes@v2
         with:
           changelog_file: CHANGELOG.md
+
+      - name: Send Release Notes to Slack
+        uses: Ilshidur/action-slack@v3
+        with:
+          status: "New Release Notes"
+          text: |
+            Release Notes:
+            ${{ steps.extract_release_notes.outputs.notes }}
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
