@@ -15,16 +15,14 @@ jobs:
 
       - name: Extract Release Notes
         id: extract_release_notes
-        uses: ffurrer2/extract-release-notes@v2
-        with:
-          changelog_file: CHANGELOG.md
+        run: |
+          release_notes=$(cat CHANGELOG.md)
+          echo "::set-output name=notes::${release_notes}"
 
       - name: Send Release Notes to Slack
-        uses: Ilshidur/action-slack@v3
-        with:
-          status: "New Release Notes"
-          text: |
-            Release Notes:
-            ${{ steps.extract_release_notes.outputs.notes }}
+        run: |
+          curl -X POST -H 'Content-type: application/json' --data '{
+            "text": "New Release Notes:\n${{ steps.extract_release_notes.outputs.notes }}"
+          }' ${{ secrets.SLACK_WEBHOOK_URL }}
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
