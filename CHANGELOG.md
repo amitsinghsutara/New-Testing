@@ -1,5 +1,12 @@
 
 
+## [1.3.36](https://github.com/amitsinghsutara/New-Testing/compare/v1.3.35...v1.3.36) (2024-04-24)
+
+
+### Bug Fixes
+
+*  Additional updates! ([4d50144](https://github.com/amitsinghsutara/New-Testing/commit/4d50144facd4d6da8f5b2c876e57af0850385723))
+
 ## [1.3.35](https://github.com/amitsinghsutara/New-Testing/compare/v1.3.34...v1.3.35) (2024-04-24)
 
 
