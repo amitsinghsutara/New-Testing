@@ -19,7 +19,7 @@ jobs:
         uses: ffurrer2/extract-release-notes@v2
 
       - name: Send to Slack
-        uses: Ilshidur/action-slack@v3
+        uses: Ilshidur/action-slack@v2
         with:
           webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}
           text: |
