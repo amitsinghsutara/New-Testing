@@ -1,5 +1,12 @@
 
 
+## [1.6.3](https://github.com/amitsinghsutara/New-Testing/compare/v1.6.2...v1.6.3) (2024-04-24)
+
+
+### Bug Fixes
+
+* trying to add title! ([5cf2a3e](https://github.com/amitsinghsutara/New-Testing/commit/5cf2a3e0ed52ffdafc56e34d4c477fc1ff4b5701))
+
 ## [1.6.2](https://github.com/amitsinghsutara/New-Testing/compare/v1.6.1...v1.6.2) (2024-04-24)
 
 
