@@ -1,5 +1,12 @@
 
 
+## [1.8.1](https://github.com/amitsinghsutara/New-Testing/compare/v1.8.0...v1.8.1) (2024-04-24)
+
+
+### Bug Fixes
+
+* Added 21st line! ([5c7d577](https://github.com/amitsinghsutara/New-Testing/commit/5c7d5770d1ee2a8e43d482a7cd9d4e6b2c1b531b))
+
 ## [1.8.0](https://github.com/amitsinghsutara/New-Testing/compare/v1.7.1...v1.8.0) (2024-04-24)
 
 
