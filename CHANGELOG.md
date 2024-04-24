@@ -1,5 +1,12 @@
 
 
+## [1.8.0](https://github.com/amitsinghsutara/New-Testing/compare/v1.7.1...v1.8.0) (2024-04-24)
+
+
+### Features
+
+* New Try! ([92fe72f](https://github.com/amitsinghsutara/New-Testing/commit/92fe72ff818dfb36e021a18c3bd4b6386b18cc3b))
+
 ## [1.7.1](https://github.com/amitsinghsutara/New-Testing/compare/v1.7.0...v1.7.1) (2024-04-24)
 
 
