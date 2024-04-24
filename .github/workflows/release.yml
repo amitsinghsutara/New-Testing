@@ -1,7 +1,7 @@
 name: Send Release Notes to Slack
 
 on:
-  push:
+  release:
     types:
       - created
 
