@@ -1,5 +1,12 @@
 
 
+## [1.7.0](https://github.com/amitsinghsutara/New-Testing/compare/v1.6.7...v1.7.0) (2024-04-24)
+
+
+### Features
+
+* trying new Workflow! ([13cb583](https://github.com/amitsinghsutara/New-Testing/commit/13cb5831bf71ea379763e2289760679e0eb2cc2f))
+
 ## [1.6.7](https://github.com/amitsinghsutara/New-Testing/compare/v1.6.6...v1.6.7) (2024-04-24)
 
 
