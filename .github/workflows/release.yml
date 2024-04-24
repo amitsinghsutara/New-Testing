@@ -18,10 +18,18 @@ jobs:
         id: extract_release_notes
         uses: ffurrer2/extract-release-notes@v2
 
-      - name: Send to Slack
+      - name: Add Version and Details to Release Notes
         run: |
+          version=$(git describe --tags --abbrev=0)
+          release_notes="${version}\n\n${{ steps.extract_release_notes.outputs.release_notes }}"
+          echo "::set-output name=release_notes::${release_notes}"
+
+      - name: Send Release Notes to Slack
+        run: |
+          release_notes="${{ steps.add_version.outputs.release_notes }}"
+          echo "Release Notes: $release_notes"
           curl -X POST -H 'Content-type: application/json' --data '{
-            "text": "New Release Notes:\n${{ steps.extract_release_notes.outputs.release_notes }}"
-          }' ${{ secrets.SLACK_WEBHOOK_URL }}
+            "text": "$release_notes"
+          }' $SLACK_WEBHOOK_URL
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
