@@ -1,33 +1,48 @@
-name: Send Release Notes to Slack
+name: Create Release and Notify Slack
 
 on:
   push:
     tags:
-      - '*.*.*'
+      - 'v*'
 
 jobs:
-  send_to_slack:
-    name: Send Release Notes to Slack
+  create_release:
+    name: Create Release
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout Code
+      - name: Get version from tag
+        id: tag_name
+        run: echo "current_version=${GITHUB_REF#refs/tags/v}" >> $GITHUB_ENV
+        shell: bash
+      - name: Checkout code
         uses: actions/checkout@v2
+      - name: Get Changelog Entry
+        id: changelog_reader
+        uses: mindsers/changelog-reader-action@v2
+        with:
+          validation_level: warn
+          version: ${{ steps.tag_name.outputs.current_version }}
+          path: ./CHANGELOG.md
+      - name: Create/update release
+        uses: ncipollo/release-action@v1
+        with:
+          tag: ${{ steps.changelog_reader.outputs.version }}
+          name: Release ${{ steps.changelog_reader.outputs.version }}
+          body: ${{ steps.changelog_reader.outputs.changes }}
+          prerelease: ${{ steps.changelog_reader.outputs.status == 'prereleased' }}
+          draft: ${{ steps.changelog_reader.outputs.status == 'unreleased' }}
+          allowUpdates: true
+          token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Extract Release Notes
-        id: extract_release_notes
-        uses: ffurrer2/extract-release-notes@v2
-
-      - name: Parse Version
-        id: parse_version
-        run: |
-          version=$(echo "${{ steps.extract_release_notes.outputs.release_notes }}" | grep -oP '(?<=## \[)[\d.]+')
-          echo "::set-output name=version::$version"
-
-      - name: Send to Slack
-        run: |
-          curl -X POST -H 'Content-type: application/json' --data '{
-            "text": "New Release Notes:\nv${{ steps.parse_version.outputs.version }}\n${{ steps.extract_release_notes.outputs.release_notes }}"
-          }' ${{ secrets.SLACK_WEBHOOK_URL }}
+  notify_slack:
+    name: Notify Slack
+    runs-on: ubuntu-latest
+    needs: create_release
+    steps:
+      - name: Send Release Notes to Slack
+        uses: slackapi/slack-github-action@v1
+        with:
+          status: "New release published! Here are the release notes for version ${{ needs.create_release.outputs.tag_name.outputs.current_version }}:"
+          text: ${{ needs.create_release.outputs.changelog_reader.outputs.changes }}
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
