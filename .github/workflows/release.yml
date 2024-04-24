@@ -15,8 +15,7 @@ jobs:
       - name: Extract release notes
         id: extract-release-notes
         uses: ffurrer2/extract-release-notes@v2
-      - name: Log extracted release notes
-        run: echo "Extracted release notes: ${{ steps.extract-release-notes.outputs }}"
+      
 
       - name: Create release
         env:
