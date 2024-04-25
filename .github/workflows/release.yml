@@ -35,7 +35,7 @@ jobs:
                 "type": "section",
                 "text": {
                   "type": "mrkdwn",
-                  "text": "*New Release Notes:*\nVersion: ${{ steps.extract_version_number.outputs.version }}\n${{ steps.extract_release_notes.outputs.release_notes }}"
+                  "text": "*New Release Notes:*\nVersion: v${{ steps.extract_version_number.outputs.version }}\n\n${{ steps.extract_release_notes.outputs.release_notes }}"
                 }
               }
             ]
