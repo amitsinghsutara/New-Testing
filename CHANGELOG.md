@@ -1,5 +1,12 @@
 
 
+## [1.8.3](https://github.com/amitsinghsutara/New-Testing/compare/v1.8.2...v1.8.3) (2024-04-25)
+
+
+### Bug Fixes
+
+* Additional Fixes! ([eeb10f3](https://github.com/amitsinghsutara/New-Testing/commit/eeb10f3aeb1a2a71b1a878b157dbc4f44f3ef054))
+
 ## [1.8.2](https://github.com/amitsinghsutara/New-Testing/compare/v1.8.1...v1.8.2) (2024-04-25)
 
 
