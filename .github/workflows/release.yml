@@ -1,8 +1,10 @@
 name: Send Release Notes to Slack
+
 on:
   push:
     tags:
       - '*.*.*'
+
 jobs:
   send_to_slack:
     name: Send Release Notes to Slack
@@ -10,13 +12,22 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
+
+      # Extract version number from workflow name
+      - name: Extract version number
+        id: extract_version_number
+        run: echo "::set-output name=version::${GITHUB_WORKFLOW#"chore: release v"}"
+
+      # Extract release notes
       - name: Extract Release Notes
         id: extract_release_notes
         uses: ffurrer2/extract-release-notes@v2
+
+      # Send to Slack including version number
       - name: Send to Slack
         run: |
           curl -X POST -H 'Content-type: application/json' --data '{
-            "text": "New Release Notes:\n${{ steps.extract_release_notes.outputs.release_notes }}"
+            "text": "New Release v${{ steps.extract_version_number.outputs.version }} Notes:\n${{ steps.extract_release_notes.outputs.release_notes }}"
           }' ${{ secrets.SLACK_WEBHOOK_URL }}
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
