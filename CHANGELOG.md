@@ -1,5 +1,12 @@
 
 
+## [1.8.5](https://github.com/amitsinghsutara/New-Testing/compare/v1.8.4...v1.8.5) (2024-04-25)
+
+
+### Bug Fixes
+
+* updated release.yml workflow! ([74b16b6](https://github.com/amitsinghsutara/New-Testing/commit/74b16b64ebc72fdf5577bf9134d74c1012e5d8f4))
+
 ## [1.8.4](https://github.com/amitsinghsutara/New-Testing/compare/v1.8.3...v1.8.4) (2024-04-25)
 
 
