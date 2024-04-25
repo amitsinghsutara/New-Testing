@@ -30,8 +30,8 @@ jobs:
       - name: Convert Markdown to Plain Text
         id: convert_to_plain_text
         run: |
-          npm install markdown-it
-          echo "${{ steps.extract_release_notes.outputs.release_notes }}" | npx markdown-it --no-HTML
+          npm install markdown-to-text
+          echo "${{ steps.extract_release_notes.outputs.release_notes }}" | npx markdown-to-text
 
       - name: Send to Slack
         run: |
