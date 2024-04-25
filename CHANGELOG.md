@@ -1,5 +1,7 @@
 
 
+## [1.10.11](https://github.com/amitsinghsutara/New-Testing/compare/v1.10.10...v1.10.11) (2024-04-25)
+
 ## [1.10.10](https://github.com/amitsinghsutara/New-Testing/compare/v1.10.9...v1.10.10) (2024-04-25)
 
 ## [1.10.9](https://github.com/amitsinghsutara/New-Testing/compare/v1.10.8...v1.10.9) (2024-04-25)
