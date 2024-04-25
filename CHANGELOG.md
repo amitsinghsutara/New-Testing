@@ -1,5 +1,12 @@
 
 
+## [1.9.0](https://github.com/amitsinghsutara/New-Testing/compare/v1.8.6...v1.9.0) (2024-04-25)
+
+
+### Features
+
+* trying to add new feature! ([7ba06b9](https://github.com/amitsinghsutara/New-Testing/commit/7ba06b923d065f90289d55305424f025c192d8af))
+
 ## [1.8.6](https://github.com/amitsinghsutara/New-Testing/compare/v1.8.5...v1.8.6) (2024-04-25)
 
 
