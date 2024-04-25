@@ -31,7 +31,7 @@ jobs:
         id: convert_to_plain_text
         run: |
           npm install markdown-it
-          echo "${{ steps.extract_release_notes.outputs.release_notes }}" | npx markdown-it --no-html --no-emphasis --no-code --no-tables --no-paragraphs
+          echo "${{ steps.extract_release_notes.outputs.release_notes }}" | npx markdown-it --no-HTML
 
       - name: Send to Slack
         run: |
