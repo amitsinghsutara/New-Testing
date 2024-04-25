@@ -27,16 +27,18 @@ jobs:
             echo "::set-output name=version::${GITHUB_REF#refs/heads/chore: release v}"
           fi
 
-      - name: Convert Markdown to Plain Text
-        id: convert_to_plain_text
-        run: |
-          npm install markdown-to-text
-          echo "${{ steps.extract_release_notes.outputs.release_notes }}" | npx markdown-to-text
-
       - name: Send to Slack
         run: |
           curl -X POST -H 'Content-type: application/json' --data '{
-            "text": "New Release Notes:\nVersion: ${{ steps.extract_version_number.outputs.version }}\n${{ steps.convert_to_plain_text.outputs.stdout }}"
+            "blocks": [
+              {
+                "type": "section",
+                "text": {
+                  "type": "mrkdwn",
+                  "text": "*New Release Notes:*\nVersion: ${{ steps.extract_version_number.outputs.version }}\n${{ steps.extract_release_notes.outputs.release_notes }}"
+                }
+              }
+            ]
           }' ${{ secrets.SLACK_WEBHOOK_URL }}
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
