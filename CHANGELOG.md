@@ -1,5 +1,12 @@
 
 
+## [1.9.1](https://github.com/amitsinghsutara/New-Testing/compare/v1.9.0...v1.9.1) (2024-04-25)
+
+
+### Bug Fixes
+
+* Additional Fixes! ([2c538e3](https://github.com/amitsinghsutara/New-Testing/commit/2c538e3b983a910e280048c11b5a0f0a47548236))
+
 ## [1.9.0](https://github.com/amitsinghsutara/New-Testing/compare/v1.8.6...v1.9.0) (2024-04-25)
 
 
