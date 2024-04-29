@@ -2,8 +2,7 @@ name: Send Release Notes to Slack
 
 on:
   push:
-    tags:
-      - "*.*.*"
+    branch: main
 
 jobs:
   send_to_slack:
