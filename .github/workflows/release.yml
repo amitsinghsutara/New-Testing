@@ -2,7 +2,8 @@ name: Send Release Notes to Slack
 
 on:
   push:
-    branch: main
+    branches:
+      - main
 
 jobs:
   send_to_slack:
@@ -10,11 +11,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Set up Git
-        run: |
-          git config --global user.email "amit@sutara.org"
-          git config --global user.name "amitsinghsutara"
-
       - name: Checkout Code
         uses: actions/checkout@v2
 
@@ -52,4 +48,4 @@ jobs:
           }' ${{ secrets.SLACK_WEBHOOK_URL }}
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
