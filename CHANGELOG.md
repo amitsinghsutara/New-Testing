@@ -1,5 +1,12 @@
 
 
+## 1.11.0 (2024-04-29)
+
+
+### Features
+
+* Reverted Changes! ([6f6d065](https://github.com/amitsinghsutara/New-Testing/commit/6f6d065e0c3230d18353c693949b578043729915))
+
 ## 1.10.13 (2024-04-29)
 
 
