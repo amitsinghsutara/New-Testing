@@ -47,4 +47,4 @@ jobs:
           }' ${{ secrets.SLACK_WEBHOOK_URL }}
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Add this line
+          GITHUB_TOKEN: ${{ secrets.TOKEN }} # Add this line
