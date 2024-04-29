@@ -3,7 +3,7 @@ name: Send Release Notes to Slack
 on:
   push:
     tags:
-      - '*.*.*'
+      - "*.*.*"
 
 jobs:
   send_to_slack:
@@ -13,6 +13,15 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run release-it
+        run: npx release-it
+
+      - name: Run release-it
+        run: npx release-it --dry-run
 
       - name: Extract Release Notes
         id: extract_release_notes
