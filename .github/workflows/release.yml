@@ -21,12 +21,6 @@ jobs:
       - name: Install jq
         run: sudo apt-get install jq
 
-      - name: Extract version number
-        id: extract_version_number
-        run: |
-          version=$(jq -r '.version' package.json)
-          echo "::set-output name=version::$version"
-
       - name: Install dependencies
         run: npm install
 
@@ -37,6 +31,11 @@ jobs:
         id: extract_release_notes
         uses: ffurrer2/extract-release-notes@v2
 
+      - name: Extract version number
+        id: extract_version_number
+        run: |
+          version=$(jq -r '.version' package.json)
+          echo "::set-output name=version::$version"
       # - name: Extract version number
       #   id: extract_version_number
       #   run: |
