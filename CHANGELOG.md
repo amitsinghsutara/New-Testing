@@ -1,5 +1,12 @@
 
 
+## 1.11.1 (2024-04-29)
+
+
+### Bug Fixes
+
+* trying to get version number! ([e0cf679](https://github.com/amitsinghsutara/New-Testing/commit/e0cf6794e4a1c96b71dd91cac70438c2a1080817))
+
 ## 1.11.0 (2024-04-29)
 
 
