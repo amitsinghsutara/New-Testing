@@ -27,20 +27,15 @@ jobs:
       - name: Run release-it
         run: npx release-it
 
-      - name: Extract Release Notes
-        id: extract_release_notes
-        uses: ffurrer2/extract-release-notes@v2
-
       - name: Extract version number
         id: extract_version_number
         run: |
           version=$(jq -r '.version' package.json)
           echo "::set-output name=version::$version"
-      # - name: Extract version number
-      #   id: extract_version_number
-      #   run: |
-      #     version=$(grep -oP '(?<=## )[0-9]+\.[0-9]+\.[0-9]+' CHANGELOG.md | head -n 1)
-      #     echo "::set-output name=version::$version"
+
+      - name: Extract Release Notes
+        id: extract_release_notes
+        uses: ffurrer2/extract-release-notes@v2
 
       - name: Send to Slack
         run: |
@@ -58,11 +53,16 @@ jobs:
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 
+  create_github_release:
+    name: Create GitHub Release
+    needs: send_to_slack
+    runs-on: ubuntu-latest
+    steps:
       - name: Create GitHub Release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: v${{ steps.extract_version_number.outputs.version }}
-          release_name: Release ${{ steps.extract_version_number.outputs.version }}
-          body: ${{ steps.extract_release_notes.outputs.release_notes }}
+          tag_name: v${{ needs.send_to_slack.outputs.extract_version_number }}
+          release_name: Release ${{ needs.send_to_slack.outputs.extract_version_number }}
+          body: ${{ needs.send_to_slack.outputs.extract_release_notes }}
