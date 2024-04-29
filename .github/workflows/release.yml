@@ -3,6 +3,8 @@ name: Send Release Notes to Slack
 on:
   push:
     branch: main
+    tags:
+      - "*.*.*"
 
 jobs:
   send_to_slack:
@@ -18,9 +20,6 @@ jobs:
 
       - name: Run release-it
         run: npx release-it
-
-      - name: Run release-it
-        run: npx release-it --dry-run
 
       - name: Extract Release Notes
         id: extract_release_notes
@@ -50,3 +49,4 @@ jobs:
           }' ${{ secrets.SLACK_WEBHOOK_URL }}
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Add this line
