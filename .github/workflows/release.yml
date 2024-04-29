@@ -18,6 +18,15 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v2
 
+      - name: Install jq
+        run: sudo apt-get install jq
+
+      - name: Extract version number
+        id: extract_version_number
+        run: |
+          version=$(jq -r '.version' package.json)
+          echo "::set-output name=version::$version"
+
       - name: Install dependencies
         run: npm install
 
@@ -28,10 +37,11 @@ jobs:
         id: extract_release_notes
         uses: ffurrer2/extract-release-notes@v2
 
-      - name: Extract version number
-        id: extract_version_number
-        run: |
-          version=$(grep -oP '(?<=## )[0-9]+\.[0-9]+\.[0-9]+' CHANGELOG.md | head -n 1)
+      # - name: Extract version number
+      #   id: extract_version_number
+      #   run: |
+      #     version=$(grep -oP '(?<=## )[0-9]+\.[0-9]+\.[0-9]+' CHANGELOG.md | head -n 1)
+      #     echo "::set-output name=version::$version"
 
       - name: Send to Slack
         run: |
@@ -48,4 +58,12 @@ jobs:
           }' ${{ secrets.SLACK_WEBHOOK_URL }}
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+
+      - name: Create GitHub Release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: v${{ steps.extract_version_number.outputs.version }}
+          release_name: Release ${{ steps.extract_version_number.outputs.version }}
+          body: ${{ steps.extract_release_notes.outputs.release_notes }}
