@@ -10,8 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@release-it/conventional-changelog": "^8.0.1",
-    "release-it": "^17.2.0"
+    "@release-it/conventional-changelog": "^8.0.1"
   },
   "release-it": {
     "git": {
@@ -44,6 +43,7 @@
     }
   },
   "devDependencies": {
-    "conventional-changelog-cli": "^4.1.0"
+    "conventional-changelog-cli": "^4.1.0",
+    "release-it": "^17.2.1"
   }
 }
