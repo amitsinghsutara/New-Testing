@@ -1,5 +1,12 @@
 
 
+## 1.11.2 (2024-04-29)
+
+
+### Bug Fixes
+
+* Added 25th line! ([a7079b9](https://github.com/amitsinghsutara/New-Testing/commit/a7079b96687098ee7b3b99504306badfde4bb1b5))
+
 ## 1.11.1 (2024-04-29)
 
 
