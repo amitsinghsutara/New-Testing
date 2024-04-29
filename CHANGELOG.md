@@ -1,5 +1,12 @@
 
 
+## 1.11.4 (2024-04-29)
+
+
+### Bug Fixes
+
+* Another try! ([5ededd5](https://github.com/amitsinghsutara/New-Testing/commit/5ededd5a59d3d0bfa729fd8f8cb901173e05a9f8))
+
 ## 1.11.3 (2024-04-29)
 
 
