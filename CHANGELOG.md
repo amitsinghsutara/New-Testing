@@ -1,5 +1,12 @@
 
 
+## 1.12.0 (2024-04-29)
+
+
+### Features
+
+* Added 29th line! ([088cd20](https://github.com/amitsinghsutara/New-Testing/commit/088cd20e3b007103026a1c4872fd3ef771027384))
+
 ## 1.11.13 (2024-04-29)
 
 
