@@ -3,8 +3,6 @@ name: Send Release Notes to Slack
 on:
   push:
     branch: main
-    tags:
-      - "*.*.*"
 
 jobs:
   send_to_slack:
