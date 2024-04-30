@@ -1,6 +1,118 @@
 
 
-## [1.10.13](https://github.com/amitsinghsutara/New-Testing/compare/v1.10.12...v1.10.13) (2024-04-25)
+## 1.12.1 (2024-04-29)
+
+
+### Bug Fixes
+
+* Additional try ([e46b76d](https://github.com/amitsinghsutara/New-Testing/commit/e46b76d6dd5069dfaff0c917aa415000afb8927f))
+
+## 1.12.0 (2024-04-29)
+
+
+### Features
+
+* Added 29th line! ([088cd20](https://github.com/amitsinghsutara/New-Testing/commit/088cd20e3b007103026a1c4872fd3ef771027384))
+
+## 1.11.13 (2024-04-29)
+
+
+### Bug Fixes
+
+* Added 28th line! ([00795b2](https://github.com/amitsinghsutara/New-Testing/commit/00795b22bdcd9e278c178283327c8ecec797d565))
+
+## 1.11.12 (2024-04-29)
+
+
+### Bug Fixes
+
+* Additional Fixes! ([7633e03](https://github.com/amitsinghsutara/New-Testing/commit/7633e0395868a58112af25c5c0fbdce311b0f0e3))
+
+## 1.11.11 (2024-04-29)
+
+
+### Bug Fixes
+
+* additional fixes! ([d63fb5a](https://github.com/amitsinghsutara/New-Testing/commit/d63fb5a36710758d358441d9f45bfe2d31db1ba8))
+
+## 1.11.10 (2024-04-29)
+
+
+### Bug Fixes
+
+* Another try! ([f6fa807](https://github.com/amitsinghsutara/New-Testing/commit/f6fa807973b7cfe29664fb240f2ad850382d8c1c))
+
+## 1.11.9 (2024-04-29)
+
+
+### Bug Fixes
+
+* New try! ([2dda0db](https://github.com/amitsinghsutara/New-Testing/commit/2dda0db9033d7f0185ebdb1c17331e4f8c0e7384))
+
+## 1.11.8 (2024-04-29)
+
+
+### Bug Fixes
+
+* Added 27th line! ([978af96](https://github.com/amitsinghsutara/New-Testing/commit/978af96eff51b8f82ef0d8f1a71e499c2689d45b))
+
+## 1.11.7 (2024-04-29)
+
+
+### Bug Fixes
+
+* Additional Fixes! ([4ccb95b](https://github.com/amitsinghsutara/New-Testing/commit/4ccb95bfafa5999e5826c1c922dd1e6b1d86d964))
+
+## 1.11.6 (2024-04-29)
+
+
+### Bug Fixes
+
+* Added 26th line! ([29f384d](https://github.com/amitsinghsutara/New-Testing/commit/29f384d64d3c756f7e3d7aa267dcf89c4ba93fd7))
+
+## 1.11.5 (2024-04-29)
+
+## 1.11.4 (2024-04-29)
+
+
+### Bug Fixes
+
+* Another try! ([5ededd5](https://github.com/amitsinghsutara/New-Testing/commit/5ededd5a59d3d0bfa729fd8f8cb901173e05a9f8))
+
+## 1.11.3 (2024-04-29)
+
+
+### Bug Fixes
+
+* Another try! ([9d5ef40](https://github.com/amitsinghsutara/New-Testing/commit/9d5ef40a661dd88770fc97e8bcc9fd56d438c195))
+
+## 1.11.2 (2024-04-29)
+
+
+### Bug Fixes
+
+* Added 25th line! ([a7079b9](https://github.com/amitsinghsutara/New-Testing/commit/a7079b96687098ee7b3b99504306badfde4bb1b5))
+
+## 1.11.1 (2024-04-29)
+
+
+### Bug Fixes
+
+* trying to get version number! ([e0cf679](https://github.com/amitsinghsutara/New-Testing/commit/e0cf6794e4a1c96b71dd91cac70438c2a1080817))
+
+## 1.11.0 (2024-04-29)
+
+
+### Features
+
+* Reverted Changes! ([6f6d065](https://github.com/amitsinghsutara/New-Testing/commit/6f6d065e0c3230d18353c693949b578043729915))
+
+## 1.10.13 (2024-04-29)
+
+
+### Bug Fixes
+
+* Another try! ([43521e1](https://github.com/amitsinghsutara/New-Testing/commit/43521e1f3f434781d403e9524c3c9c2be62d8cbb))
 
 ## [1.10.12](https://github.com/amitsinghsutara/New-Testing/compare/v1.10.11...v1.10.12) (2024-04-25)
 
