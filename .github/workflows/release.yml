@@ -23,13 +23,14 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-      - name: Debug Changelog1
-        run: cat CHANGELOG.md
-      - name: Run release-it
-        run: npx release-it
+      # - name: Debug Changelog1
+      #   run: cat CHANGELOG.md
 
-      - name: Debug Changelog
-        run: cat CHANGELOG.md
+      # - name: Run release-it
+      #   run: npx release-it
+
+      # - name: Debug Changelog
+      #   run: cat CHANGELOG.md
 
       - name: Extract version number
         id: extract_version_number
