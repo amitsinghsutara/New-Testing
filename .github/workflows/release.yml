@@ -2,7 +2,7 @@ name: Send Release Notes to Slack
 
 on:
   push:
-    tags: Release
+    branch: main
 
 jobs:
   send_to_slack:
@@ -26,8 +26,8 @@ jobs:
       # - name: Debug Changelog1
       #   run: cat CHANGELOG.md
 
-      # - name: Run release-it
-      #   run: npx release-it
+      - name: Run release-it
+        run: npx release-it
 
       # - name: Debug Changelog
       #   run: cat CHANGELOG.md
