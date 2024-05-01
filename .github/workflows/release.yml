@@ -29,7 +29,9 @@ jobs:
 
       - name: Extract Release Notes
         id: extract_release_notes
-        uses: ffurrer2/extract-release-notes@v2
+        run: |
+          release_notes=$(grep -oP '(?<=##\s\[)[0-9]+\.[0-9]+\.[0-9]+' CHANGELOG.md | head -n 1)
+          echo "::set-output name=release_notes::$release_notes"
 
       - name: Extract version number
         id: extract_version_number
@@ -53,11 +55,11 @@ jobs:
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 
-      # - name: Create GitHub Release
-      #   uses: actions/create-release@v1
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #   with:
-      #     tag_name: v${{ steps.extract_version_number.outputs.version }}
-      #     release_name: Release ${{ steps.extract_version_number.outputs.version}}
-      #     body: ${{ steps.extract_release_notes.outputs.release_notes }}
+      - name: Create GitHub Release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: v${{ steps.extract_version_number.outputs.version }}
+          release_name: Release ${{ steps.extract_version_number.outputs.version}}
+          body: ${{ steps.extract_release_notes.outputs.release_notes }}
