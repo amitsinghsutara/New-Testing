@@ -1,5 +1,12 @@
 
 
+## 1.12.5 (2024-05-01)
+
+
+### Bug Fixes
+
+* Additional Updates release.yml! ([0d522a8](https://github.com/amitsinghsutara/New-Testing/commit/0d522a80b51bc4bb9b0d4bdcf9d2a2651ea6d3e0))
+
 ## 1.12.4 (2024-05-01)
 
 
