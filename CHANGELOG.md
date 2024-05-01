@@ -1,5 +1,12 @@
 
 
+## [1.13.20](https://github.com/amitsinghsutara/New-Testing/compare/1.13.19...1.13.20) (2024-05-01)
+
+
+### Bug Fixes
+
+* Additional Fixes! ([e877601](https://github.com/amitsinghsutara/New-Testing/commit/e877601ef83da5515ef67a9fc89c9b1abab9eb16))
+
 ## 1.13.19 (2024-05-01)
 
 
