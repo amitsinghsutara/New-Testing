@@ -41,11 +41,6 @@ jobs:
         uses: CSchoel/release-notes-from-changelog@v1
         with:
           version: ${{ steps.extract_version_number.outputs.version }} # Specify the version string to search in the changelog (optional)
-          begin-pattern: '/^## \\[1\\.0\\.0\\]/' # Customize the begin pattern (optional)
-          end-pattern: "/^## /" # Customize the end pattern (optional)
-          link-pattern: '^\\[1\\.0\\.0\\]:' # Customize the link pattern (optional)
-          chop: 2 # Specify the number of lines to cut from end of matched region (optional)
-          working-directory: "../../CHANGELOG.md" # Specify the working directory (optional)
 
       - name: Send to Slack
         run: |
