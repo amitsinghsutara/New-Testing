@@ -27,6 +27,9 @@ jobs:
       - name: Run release-it
         run: npx release-it
 
+      - name: Debug Changelog
+        run: cat CHANGELOG.md
+
       - name: Extract release notes
         uses: ffurrer2/extract-release-notes@v2
         with:
