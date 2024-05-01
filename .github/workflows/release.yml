@@ -50,7 +50,7 @@ jobs:
                 "type": "section",
                 "text": {
                   "type": "mrkdwn",
-                  "text": "*New Release Notes:*\nVersion: v${{ steps.extract_version_number.outputs.version }}\n\n${{ steps.extract_release_notes.outputs.release_notes }}"
+                  "text": "*New Release Notes:*\nVersion: v${{ steps.extract_version_number.outputs.version }}\n\n${{ steps.extract-release-notes.outputs.release_notes }}"
                 }
               }
             ]
@@ -65,4 +65,4 @@ jobs:
         with:
           tag_name: v${{ steps.extract_version_number.outputs.version }}
           release_name: Release ${{ steps.extract_version_number.outputs.version}}
-          body: ${{ steps.extract_release_notes.outputs.release_notes }}
+          body: ${{ steps.extract-release-notes.outputs.release_notes }}
