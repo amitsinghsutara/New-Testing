@@ -27,11 +27,10 @@ jobs:
       - name: Run release-it
         run: npx release-it
 
-      - name: Extract Release Notes
-        id: extract_release_notes
-        run: |
-          release_notes=$(grep -oP '(?<=## \[)[0-9]+\.[0-9]+\.[0-9]+' CHANGELOG.md | head -n 1)
-          echo "::set-output name=release_notes::$release_notes"
+      - name: Extract release notes
+        uses: ffurrer2/extract-release-notes@v2
+        with:
+          release_notes_file: CHANGELOG.md
 
       - name: Extract version number
         id: extract_version_number
