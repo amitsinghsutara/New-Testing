@@ -27,6 +27,10 @@ jobs:
       - name: Run release-it
         run: npx release-it
 
+      - name: Extract Release Notes
+        id: extract_release_notes
+        uses: ffurrer2/extract-release-notes@v2
+
       - name: Extract version number
         id: extract_version_number
         run: |
