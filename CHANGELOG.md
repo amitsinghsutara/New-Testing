@@ -1,5 +1,12 @@
 
 
+## 1.13.10 (2024-05-01)
+
+
+### Bug Fixes
+
+* Updated release.yml! ([dcc8054](https://github.com/amitsinghsutara/New-Testing/commit/dcc805453386adbd05cf29ede97f02780014b106))
+
 ## 1.13.9 (2024-05-01)
 
 ## 1.13.8 (2024-05-01)
