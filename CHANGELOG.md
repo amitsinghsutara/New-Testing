@@ -1,5 +1,12 @@
 
 
+## 1.13.11 (2024-05-01)
+
+
+### Bug Fixes
+
+* Additional FIxes! ([8778c44](https://github.com/amitsinghsutara/New-Testing/commit/8778c4443b0fb51f2f796d16361d9a155047ffca))
+
 ## 1.13.10 (2024-05-01)
 
 
