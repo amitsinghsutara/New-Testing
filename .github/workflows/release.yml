@@ -2,7 +2,7 @@ name: Send Release Notes to Slack
 
 on:
   push:
-    branch: main
+    tags: Release
 
 jobs:
   send_to_slack:
@@ -41,8 +41,6 @@ jobs:
       - name: Extract release notes
         id: extract-release-notes
         uses: ffurrer2/extract-release-notes@v2
-        with:
-          changelog_file: CHANGELOG.md
 
       - name: Send to Slack
         run: |
