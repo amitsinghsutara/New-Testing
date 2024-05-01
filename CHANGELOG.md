@@ -1,5 +1,12 @@
 
 
+## 1.16.0 (2024-05-01)
+
+
+### Features
+
+* Added new thing! ([bf8851c](https://github.com/amitsinghsutara/New-Testing/commit/bf8851cdd4bd17a02a7a2d404f57d41c5ea75572))
+
 ## 1.15.0 (2024-05-01)
 
 
