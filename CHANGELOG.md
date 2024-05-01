@@ -1,5 +1,12 @@
 
 
+## 1.15.0 (2024-05-01)
+
+
+### Features
+
+* Added Additional Fixes! ([3a3ded5](https://github.com/amitsinghsutara/New-Testing/commit/3a3ded5a75e06074a818981a3b6ce265ee782180))
+
 ## 1.14.0 (2024-05-01)
 
 
