@@ -42,6 +42,7 @@ jobs:
         uses: ffurrer2/extract-release-notes@v2
         with:
           changelog_file: CHANGELOG.md
+
       - name: Send to Slack
         run: |
           curl -X POST -H 'Content-type: application/json' --data '{
