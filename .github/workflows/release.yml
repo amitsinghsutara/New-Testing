@@ -24,6 +24,15 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Create GitHub Release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: v${{ needs.send_to_slack.outputs.extract_version_number }}
+          release_name: Release ${{ needs.send_to_slack.outputs.extract_version_number }}
+          body: ${{ needs.send_to_slack.outputs.extract_release_notes }}
+
       - name: Run release-it
         run: npx release-it
 
@@ -52,17 +61,3 @@ jobs:
           }' ${{ secrets.SLACK_WEBHOOK_URL }}
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-
-  create_github_release:
-    name: Create GitHub Release
-    needs: send_to_slack
-    runs-on: ubuntu-latest
-    steps:
-      - name: Create GitHub Release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: v${{ needs.send_to_slack.outputs.extract_version_number }}
-          release_name: Release ${{ needs.send_to_slack.outputs.extract_version_number }}
-          body: ${{ needs.send_to_slack.outputs.extract_release_notes }}
