@@ -37,10 +37,6 @@ jobs:
           version=$(jq -r '.version' package.json)
           echo "::set-output name=version::$version"
 
-      - name: Extract Release Notes
-        id: extract_release_notes
-        uses: ffurrer2/extract-release-notes@v2
-
       - name: Send to Slack
         run: |
           curl -X POST -H 'Content-type: application/json' --data '{
