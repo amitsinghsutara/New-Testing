@@ -11,6 +11,16 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
+
+      - name: Install jq
+        run: sudo apt-get install jq
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run release-it
+        run: npx release-it
+
       - name: Extract Release Notes
         id: extract_release_notes
         uses: ffurrer2/extract-release-notes@v2
