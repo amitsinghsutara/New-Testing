@@ -1,5 +1,12 @@
 
 
+## [1.29.0](https://github.com/amitsinghsutara/New-Testing/compare/1.28.2...1.29.0) (2024-05-02)
+
+
+### Features
+
+* added new channel! ([0d8b5eb](https://github.com/amitsinghsutara/New-Testing/commit/0d8b5eb3964c9be80747784abf721c81bcf54849))
+
 ## [1.28.2](https://github.com/amitsinghsutara/New-Testing/compare/1.28.1...1.28.2) (2024-05-02)
 
 
