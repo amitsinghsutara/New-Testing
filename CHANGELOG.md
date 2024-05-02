@@ -1,5 +1,12 @@
 
 
+## 1.41.0 (2024-05-02)
+
+
+### Features
+
+* Additional Fixes! ([d8b9227](https://github.com/amitsinghsutara/New-Testing/commit/d8b9227e41809784ac3b8b44cea8ec38372a0180))
+
 ## [1.40.0](https://github.com/amitsinghsutara/New-Testing/compare/1.39.0...1.40.0) (2024-05-02)
 
 
