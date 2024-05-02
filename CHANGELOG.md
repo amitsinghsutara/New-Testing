@@ -1,5 +1,7 @@
 
 
+## [1.31.2](https://github.com/amitsinghsutara/New-Testing/compare/1.31.1...1.31.2) (2024-05-02)
+
 ## [1.31.1](https://github.com/amitsinghsutara/New-Testing/compare/1.31.0...1.31.1) (2024-05-02)
 
 ## 1.31.0 (2024-05-02)
