@@ -39,9 +39,9 @@ jobs:
           echo "::set-output name=version::$version"
 
        - name: Extract release notes for latest version
-        id: extract_release_notes_latest
-        uses: ffurrer2/extract-release-notes@v2
-        with:
+         id: extract_release_notes_latest
+         uses: ffurrer2/extract-release-notes@v2
+         with:
           changelog_file: CHANGELOG.md
           version: ${{ steps.extract_version_numbers.outputs.versions | split("\n")[-1] }}
 
