@@ -44,7 +44,7 @@ jobs:
         with:
           version_prefix: "## Version "
           version: "${{ steps.extract_version_number.outputs.version }}"
-          changelog_path: "./CHANGELOG.md"
+          changelog_path: "../../CHANGELOG.md"
 
       - name: Send to Slack
         run: |
