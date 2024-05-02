@@ -1,5 +1,12 @@
 
 
+## 1.30.0 (2024-05-02)
+
+
+### Features
+
+* Added  new Features! ([4ec58d1](https://github.com/amitsinghsutara/New-Testing/commit/4ec58d1f718c58166f2805790cbe968480beb91c))
+
 ## [1.29.1](https://github.com/amitsinghsutara/New-Testing/compare/1.29.0...1.29.1) (2024-05-02)
 
 
