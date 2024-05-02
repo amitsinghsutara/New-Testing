@@ -1,5 +1,12 @@
 
 
+## 1.26.1 (2024-05-02)
+
+
+### Bug Fixes
+
+* Added Additional Fioxes! ([e9f141f](https://github.com/amitsinghsutara/New-Testing/commit/e9f141f5c3d22b668bb29593beabf0588c58b04a))
+
 ## 1.26.0 (2024-05-02)
 
 
