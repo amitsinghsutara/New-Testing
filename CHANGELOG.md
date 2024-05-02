@@ -1,5 +1,12 @@
 
 
+## [1.40.0](https://github.com/amitsinghsutara/New-Testing/compare/1.39.0...1.40.0) (2024-05-02)
+
+
+### Features
+
+* Final try! ([236cff3](https://github.com/amitsinghsutara/New-Testing/commit/236cff38ac4e8c11273312e2b437b0dfa37a2737))
+
 ## [1.39.0](https://github.com/amitsinghsutara/New-Testing/compare/1.38.1...1.39.0) (2024-05-02)
 
 
