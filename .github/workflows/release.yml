@@ -37,11 +37,9 @@ jobs:
       - name: Extract version number
         id: extract_version_number
         run: |
-          if [[ "${{ github.event_name }}" == "push" ]]; then
-            echo "::set-output name=version::${GITHUB_REF#refs/tags/v}"
-          else
-            echo "::set-output name=version::${GITHUB_REF#refs/heads/chore: release v}"
-          fi
+          version=$(jq -r '.version' package.json)
+          echo "::set-output name=version::$version"
+          
       - name: Send to Slack
         run: |
           curl -X POST -H 'Content-type: application/json' --data '{
