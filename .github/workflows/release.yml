@@ -39,8 +39,8 @@ jobs:
           echo "::set-output name=version::$version"
 
       - name: Extract release notes
-      id: extract-release-notes
-      uses: ffurrer2/extract-release-notes@v2
+        id: extract-release-notes
+        uses: ffurrer2/extract-release-notes@v2
 
       - name: Send to Slack
         run: |
