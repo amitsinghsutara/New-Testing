@@ -28,9 +28,7 @@ jobs:
       # - name: Run release-it
       #   run: npx release-it
       - name: release-it
-        run: npx release-it
-        with:
-          json-opts: '{"dry-run": true}'
+        npx release-it --dry-run
 
       - name: Extract Release Notes
         id: extract_release_notes
