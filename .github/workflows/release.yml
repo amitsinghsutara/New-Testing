@@ -42,21 +42,21 @@ jobs:
         id: extract_release_notes
         uses: ffurrer2/extract-release-notes@v2
 
-      # - name: Send to Slack
-      #   run: |
-      #     curl -X POST -H 'Content-type: application/json' --data '{
-      #       "blocks": [
-      #         {
-      #           "type": "section",
-      #           "text": {
-      #             "type": "mrkdwn",
-      #             "text": "*New Release Notes:*\nVersion: v${{ steps.extract_version_number.outputs.version }}\n\n${{ steps.extract_release_notes.outputs.release_notes }}"
-      #           }
-      #         }
-      #       ]
-      #     }' ${{ secrets.SLACK_WEBHOOK_URL }}
-      #   env:
-      #     SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+      - name: Send to Slack
+        run: |
+          curl -X POST -H 'Content-type: application/json' --data '{
+            "blocks": [
+              {
+                "type": "section",
+                "text": {
+                  "type": "mrkdwn",
+                  "text": "*New Release Notes:*\nVersion: v${{ steps.extract_version_number.outputs.version }}\n\n${{ steps.extract-release-notes.outputs.release_notes }}"
+                }
+              }
+            ]
+          }' ${{ secrets.SLACK_WEBHOOK_URL }}
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 
       - name: Create GitHub Release
         uses: actions/create-release@v1
