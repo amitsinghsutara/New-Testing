@@ -1,13 +1,12 @@
 name: Create Release
 
-
 on:
   push:
     branch: main
 
 jobs:
   send_to_slack:
-    name: Send Release Notes to Slack
+    name: Release Notes 
     runs-on: ubuntu-latest
 
     steps:
