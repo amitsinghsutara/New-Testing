@@ -26,9 +26,7 @@ jobs:
         run: npm install
 
       # - name: Run release-it
-      #   run: npx release-it
-      - name: release-it
-        run: npx release-it 
+      #   run: npx release-it 
 
       - name: Extract version number
         id: extract_version_number
@@ -38,13 +36,8 @@ jobs:
 
       - name: Extract Release Notes
         id: extract_release_notes
-        run: |
-          awk -v ver="${{ steps.extract_version_number.outputs.version }}" '/^## Version / {
-              if (p) { exit }
-              if ($3 == ver) { p=1; next }
-            }
-            p && NF && !/^## Version / { print }
-          ' CHANGELOG.md > release_notes.txt
+        uses: ffurrer2/extract-release-notes@v2
+
 
       - name: Send to Slack
         run: |
