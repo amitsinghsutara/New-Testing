@@ -38,12 +38,9 @@ jobs:
           version=$(jq -r '.version' package.json)
           echo "::set-output name=version::$version"
 
-      - name: Generate Release Notes
-        id: release_notes
-        uses: rhysd/changelog-from-release/action@v3
-        with:
-          file: CHANGELOG.md
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Extract release notes
+        id: extract-release-notes
+        uses: ffurrer2/extract-release-notes@v2
 
       - name: Send to Slack
         run: |
@@ -53,7 +50,7 @@ jobs:
                 "type": "section",
                 "text": {
                   "type": "mrkdwn",
-                  "text": "*New Release Notes:*\nVersion: v${{ steps.extract_version_number.outputs.version }}\n\n${{ steps.release_notes.outputs.changes }}"
+                  "text": "*New Release Notes:*\nVersion: v${{ steps.extract_version_number.outputs.version }}\n\n${{ steps.extract-release-notes.outputs.release_notes }}"
                 }
               }
             ]
@@ -68,4 +65,4 @@ jobs:
         with:
           tag_name: v${{ steps.extract_version_number.outputs.version }}
           release_name: Release ${{ steps.extract_version_number.outputs.version}}
-          body: ${{ steps.release_notes.outputs.changes }}
+          body: ${{ steps.extract-release-notes.outputs.release_notes }}
