@@ -1,5 +1,12 @@
 
 
+## 1.22.0 (2024-05-02)
+
+
+### Features
+
+* Additional Features! ([38eadaf](https://github.com/amitsinghsutara/New-Testing/commit/38eadaf58a2c240180bc6cd8fa583280fdd62c51))
+
 ## 1.21.0 (2024-05-02)
 
 
