@@ -1,22 +1,15 @@
 name: Send Release Notes to Slack
 on:
   push:
-    branch: main
+    tags:
+      - '..*'
 jobs:
   send_to_slack:
     name: Send Release Notes to Slack
     runs-on: ubuntu-latest
     steps:
-      - name: Set up Git
-        run: |
-          git config --global user.email "amit@sutara.org"
-          git config --global user.name "amitsinghsutara"
       - name: Checkout Code
         uses: actions/checkout@v2
-      - name: Install dependencies
-        run: npm install
-      - name: Run release-it
-        run: npx release-it
       - name: Extract Release Notes
         id: extract_release_notes
         uses: ffurrer2/extract-release-notes@v2
@@ -31,16 +24,7 @@ jobs:
       - name: Send to Slack
         run: |
           curl -X POST -H 'Content-type: application/json' --data '{
-            "blocks": [
-              {
-                "type": "section",
-                "text": {
-                  "type": "mrkdwn",
-                  "text": "*New Release Notes:*\nVersion: v${{ steps.extract_version_number.outputs.version }}\n\n${{ steps.extract_release_notes.outputs.release_notes }}"
-                }
-              }
-            ]
+            "text": "New Release Notes:\nVersion: ${{ steps.extract_version_number.outputs.version }}\n${{ steps.extract_release_notes.outputs.release_notes }}"
           }' ${{ secrets.SLACK_WEBHOOK_URL }}
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
