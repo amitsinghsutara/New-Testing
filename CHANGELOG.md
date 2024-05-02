@@ -1,5 +1,12 @@
 
 
+## 1.30.3 (2024-05-02)
+
+
+### Bug Fixes
+
+* Deleted Extra files! ([fce04fc](https://github.com/amitsinghsutara/New-Testing/commit/fce04fcbfbcf2a862b210926a676c867ec993e34))
+
 ## 1.30.2 (2024-05-02)
 
 
