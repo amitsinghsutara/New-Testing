@@ -1,9 +1,9 @@
 name: Send Release Notes to Slack
+
 on:
-  push:
-    tags:
-      - '..*'
-      
+  release:
+    types: [published]
+
 jobs:
   send_to_slack:
     name: Send Release Notes to Slack
