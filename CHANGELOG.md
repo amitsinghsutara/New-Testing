@@ -1,5 +1,13 @@
 
 
+## [1.39.0](https://github.com/amitsinghsutara/New-Testing/compare/1.38.1...1.39.0) (2024-05-02)
+
+
+### Features
+
+* Neew try! ([6113e98](https://github.com/amitsinghsutara/New-Testing/commit/6113e982876eab88b3cfcb7eced3eaf8ceb1e2ea))
+* one more try! ([f3d3907](https://github.com/amitsinghsutara/New-Testing/commit/f3d3907c9ad34d874758db713ebede8ac24e5401))
+
 ## 1.38.1 (2024-05-02)
 
 
