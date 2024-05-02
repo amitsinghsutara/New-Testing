@@ -1,5 +1,12 @@
 
 
+## 1.32.2 (2024-05-02)
+
+
+### Bug Fixes
+
+* trying to extract release notes! ([0c1e184](https://github.com/amitsinghsutara/New-Testing/commit/0c1e1843551b098fb2956ffe297bf8bb93b88c7c))
+
 ## 1.32.1 (2024-05-02)
 
 
