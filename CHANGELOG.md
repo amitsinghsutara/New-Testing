@@ -1,5 +1,12 @@
 
 
+## 1.38.1 (2024-05-02)
+
+
+### Bug Fixes
+
+* Added git config ([61fc475](https://github.com/amitsinghsutara/New-Testing/commit/61fc4753883b61d33c980fe1e8268a4ed8233259))
+
 ## [1.38.0](https://github.com/amitsinghsutara/New-Testing/compare/1.37.0...1.38.0) (2024-05-02)
 
 
