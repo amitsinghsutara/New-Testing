@@ -27,15 +27,17 @@ jobs:
       - name: Run release-it
         run: npx release-it
 
+      - name: Extract Release Notes
+        id: extract-release-notes
+        uses: ffurrer2/extract-release-notes@v2
+
       - name: Extract version number
         id: extract_version_number
         run: |
           version=$(jq -r '.version' package.json)
           echo "::set-output name=version::$version"
 
-      - name: Extract Release Notes
-        id: extract-release-notes
-        uses: ffurrer2/extract-release-notes@v2
+      
 
       - name: Send to Slack
         run: |
