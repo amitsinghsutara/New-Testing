@@ -40,7 +40,11 @@ jobs:
 
       - name: Extract Release Notes
         id: extract_release_notes
-        uses: ffurrer2/extract-release-notes@v2
+        uses: nickohold/changelog-version-extractor@v1.0.0
+        with:
+          version_prefix: "## Version "
+          version: "${{ steps.extract_version_number.outputs.version }}"
+          changelog_path: "./CHANGELOG.md"
 
       - name: Send to Slack
         run: |
