@@ -35,26 +35,21 @@ jobs:
         run: |
           version=$(jq -r '.version' package.json)
           echo "::set-output name=version::$version"
-          
+
       - name: Extract Release Notes
         id: extract_release_notes
         run: |
-         # Read the content of the changelog file
-         changelog=$(cat CHANGELOG.md)
-    
-         # Extract the release notes for the given version
-         release_notes=$(echo "$changelog" | awk -v ver="v${{ steps.extract_version_number.outputs.version }}" '$0 ~ ver {p=1; next} /^##/ && p {exit} p' | sed '/^##/d')
-
-         # Set the output with the extracted release notes
-         echo "::set-output name=release_notes::$release_notes"
-
-
-      
+          awk -v ver="${{ steps.extract_version_number.outputs.version }}" '/^## Version / {
+              if (p) { exit }
+              if ($3 == ver) { p=1; next }
+            }
+            p && NF && !/^## Version / { print }
+          ' CHANGELOG.md > release_notes.txt
 
       - name: Send to Slack
         run: |
           curl -X POST -H 'Content-type: application/json' --data '{
-            "text": "New Release Notes:\nVersion: ${{ steps.extract_version_number.outputs.version }}\n${{ steps.extract_release_notes.outputs.release_notes }}"
+            "text": "New Release Notes:\nVersion: v${{ steps.extract_version_number.outputs.version }}\n$(cat release_notes.txt)"
           }' ${{ secrets.SLACK_WEBHOOK_URL }}
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
