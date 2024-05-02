@@ -1,47 +1,33 @@
-name: Create Release
-
+name: Send Release Notes to Slack
 on:
   push:
     branch: main
-
 jobs:
   send_to_slack:
-    name: Release Notes 
+    name: Send Release Notes to Slack
     runs-on: ubuntu-latest
-
     steps:
       - name: Set up Git
         run: |
           git config --global user.email "amit@sutara.org"
           git config --global user.name "amitsinghsutara"
-
       - name: Checkout Code
         uses: actions/checkout@v2
-
-      - name: Install jq
-        run: sudo apt-get install jq
-
       - name: Install dependencies
         run: npm install
-      # - name: Debug Changelog1
-      #   run: cat CHANGELOG.md
-
       - name: Run release-it
         run: npx release-it
-
-      # - name: Debug Changelog
-      #   run: cat CHANGELOG.md
-
-      - name: Extract version number
-        id: extract_version_number
-        run: |
-          version=$(jq -r '.version' package.json)
-          echo "::set-output name=version::$version"
-
       - name: Extract Release Notes
         id: extract_release_notes
         uses: ffurrer2/extract-release-notes@v2
-
+      - name: Extract version number
+        id: extract_version_number
+        run: |
+          if [[ "${{ github.event_name }}" == "push" ]]; then
+            echo "::set-output name=version::${GITHUB_REF#refs/tags/v}"
+          else
+            echo "::set-output name=version::${GITHUB_REF#refs/heads/chore: release v}"
+          fi
       - name: Send to Slack
         run: |
           curl -X POST -H 'Content-type: application/json' --data '{
@@ -57,12 +43,4 @@ jobs:
           }' ${{ secrets.SLACK_WEBHOOK_URL }}
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-
-      # - name: Create GitHub Release
-      #   uses: actions/create-release@v1
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #   with:
-      #     tag_name: v${{ steps.extract_version_number.outputs.version }}
-      #     release_name: Release ${{ steps.extract_version_number.outputs.version}}
-      #     body: ${{ steps.extract_release_notes.outputs.release_notes }}
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
