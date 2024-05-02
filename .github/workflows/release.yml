@@ -30,15 +30,18 @@ jobs:
       - name: release-it
         run: npx release-it 
 
-      - name: Extract version number
-        id: extract_version_number
-        run: |
-          version=$(jq -r '.version' package.json)
-          echo "::set-output name=version::$version"
-
       - name: Extract Release Notes
         id: extract_release_notes
-        uses: ffurrer2/extract-release-notes@v2
+        run: |
+         # Read the content of the changelog file
+         changelog=$(cat CHANGELOG.md)
+    
+         # Extract the release notes for the given version
+         release_notes=$(echo "$changelog" | awk -v ver="v${{ steps.extract_version_number.outputs.version }}" '$0 ~ ver {p=1; next} /^##/ && p {exit} p' | sed '/^##/d')
+
+         # Set the output with the extracted release notes
+         echo "::set-output name=release_notes::$release_notes"
+
 
       
 
