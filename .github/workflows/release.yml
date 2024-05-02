@@ -3,6 +3,7 @@ on:
   push:
     tags:
       - '..*'
+      
 jobs:
   send_to_slack:
     name: Send Release Notes to Slack
