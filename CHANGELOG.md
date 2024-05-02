@@ -1,5 +1,12 @@
 
 
+## [1.38.0](https://github.com/amitsinghsutara/New-Testing/compare/1.37.0...1.38.0) (2024-05-02)
+
+
+### Features
+
+* ADditoinal Features! ([0877777](https://github.com/amitsinghsutara/New-Testing/commit/0877777490883b7054f7e5667b6a08ba67335e33))
+
 ## [1.37.0](https://github.com/amitsinghsutara/New-Testing/compare/1.36.0...1.37.0) (2024-05-02)
 
 
