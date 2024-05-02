@@ -1,8 +1,8 @@
 name: Send Release Notes to Slack
 
 on:
-  push:
-    branch: main
+  release:
+    types: [published]
 
 jobs:
   send_to_slack:
