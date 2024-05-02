@@ -1,8 +1,8 @@
 name: Send Release Notes to Slack
 
 on:
-  push:
-    branch: main
+  release:
+    types: [published]
 
 jobs:
   send_to_slack:
@@ -38,6 +38,8 @@ jobs:
         id: extract_release_notes
         uses: ffurrer2/extract-release-notes@v2
 
+      - name: Save Release Notes to File
+        run: echo "${{ steps.extract_release_notes.outputs.release_notes }}" > release_notes.txt
 
       - name: Send to Slack
         run: |
