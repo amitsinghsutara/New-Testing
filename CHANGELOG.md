@@ -1,5 +1,13 @@
 
 
+## [1.34.0](https://github.com/amitsinghsutara/New-Testing/compare/1.33.0...1.34.0) (2024-05-02)
+
+
+### Features
+
+* Additional Changes! ([ed4ff6b](https://github.com/amitsinghsutara/New-Testing/commit/ed4ff6b9194cba6ee3f322858872cd9c9642b8eb))
+* Additional Reverts! ([35be87d](https://github.com/amitsinghsutara/New-Testing/commit/35be87d75548b81ee322e158f567918bbec24f41))
+
 ## 1.33.0 (2024-05-02)
 
 
