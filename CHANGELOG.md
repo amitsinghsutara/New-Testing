@@ -1,5 +1,12 @@
 
 
+## [1.46.0](https://github.com/amitsinghsutara/New-Testing/compare/1.45.0...1.46.0) (2024-05-02)
+
+
+### Features
+
+* Updates release.yml! ([9f9c6c0](https://github.com/amitsinghsutara/New-Testing/commit/9f9c6c0eef4d0cf617b9ee7846670451ccfd65c9))
+
 ## [1.45.0](https://github.com/amitsinghsutara/New-Testing/compare/1.44.1...1.45.0) (2024-05-02)
 
 
