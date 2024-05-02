@@ -38,12 +38,9 @@ jobs:
           version=$(jq -r '.version' package.json)
           echo "::set-output name=version::$version"
 
-      - name: Extract release notes for latest version
-        id: extract_release_notes_latest
-        uses: ffurrer2/extract-release-notes@v2
-        with:
-          changelog_file: CHANGELOG.md
-          version: ${{ steps.extract_version_number.outputs.version }}
+      - name: Extract release notes
+      id: extract-release-notes
+      uses: ffurrer2/extract-release-notes@v2
 
       - name: Send to Slack
         run: |
@@ -53,7 +50,7 @@ jobs:
                 "type": "section",
                 "text": {
                   "type": "mrkdwn",
-                  "text": "*New Release Notes:*\nVersion: v${{ steps.extract_version_number.outputs.version }}\n\n${{ steps.extract_release_notes_latest.outputs.release_notes }}"
+                  "text": "*New Release Notes:*\nVersion: v${{ steps.extract_version_number.outputs.version }}\n\n${{ steps.extract-release-notes-latest.outputs.release_notes }}"
                 }
               }
             ]
@@ -68,4 +65,4 @@ jobs:
         with:
           tag_name: v${{ steps.extract_version_number.outputs.version }}
           release_name: Release ${{ steps.extract_version_number.outputs.version}}
-          body: ${{ steps.extract_release_notes_latest.outputs.release_notes }}
+          body: ${{ steps.extract_release-notes-latest.outputs.release_notes }}
