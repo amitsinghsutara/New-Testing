@@ -10,19 +10,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-      # - name: Set up Git
-      #   run: |
-      #     git config --global user.email "amit@sutara.org"
-      #     git config --global user.name "amitsinghsutara"
+
+      - name: Set up Git
+        run: |
+          git config --global user.email "amit@sutara.org"
+          git config --global user.name "amitsinghsutara"
           
       - name: Checkout Code
         uses: actions/checkout@v2
 
-      # - name: Install jq
-      #   run: sudo apt-get install jq
+      - name: Install jq
+        run: sudo apt-get install jq
 
-      # - name: Install dependencies
-      #   run: npm install
+      - name: Install dependencies
+        run: npm install
 
       # - name: Run release-it
       #   run: npx release-it
