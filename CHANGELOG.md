@@ -1,5 +1,12 @@
 
 
+## [1.35.0](https://github.com/amitsinghsutara/New-Testing/compare/1.34.0...1.35.0) (2024-05-02)
+
+
+### Features
+
+* removed Unused part! ([2ef98ce](https://github.com/amitsinghsutara/New-Testing/commit/2ef98ceea666709c2117716783fcebdbcf279420))
+
 ## [1.34.0](https://github.com/amitsinghsutara/New-Testing/compare/1.33.0...1.34.0) (2024-05-02)
 
 
