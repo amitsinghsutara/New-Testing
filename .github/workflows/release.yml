@@ -31,9 +31,6 @@ jobs:
 
       # - name: Debug Changelog
       #   run: cat CHANGELOG.md
-      - name: Extract release notes
-        id: extract-release-notes
-        uses: ffurrer2/extract-release-notes@v2
 
       - name: Extract version number
         id: extract_version_number
@@ -41,7 +38,9 @@ jobs:
           version=$(jq -r '.version' package.json)
           echo "::set-output name=version::$version"
 
-      
+      - name: Extract Release Notes
+        id: extract_release_notes
+        uses: ffurrer2/extract-release-notes@v2
 
       - name: Send to Slack
         run: |
@@ -66,4 +65,4 @@ jobs:
         with:
           tag_name: v${{ steps.extract_version_number.outputs.version }}
           release_name: Release ${{ steps.extract_version_number.outputs.version}}
-          body: ${{ steps.extract-release-notes.outputs.release_notes }}
+          body: ${{ steps.extract_release_notes.outputs.release_notes }}
