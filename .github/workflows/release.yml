@@ -28,7 +28,7 @@ jobs:
       # - name: Run release-it
       #   run: npx release-it
       - name: release-it
-        uses: TheRealWaldo/release-it@v0.7.2
+        run: npx release-it
         with:
           json-opts: '{"dry-run": true}'
 
