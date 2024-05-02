@@ -1,5 +1,12 @@
 
 
+## 1.42.0 (2024-05-02)
+
+
+### Features
+
+* Let's give another try! ([29b1969](https://github.com/amitsinghsutara/New-Testing/commit/29b19690a57ee3e28fd3798ce47da80899b738df))
+
 ## 1.41.0 (2024-05-02)
 
 
