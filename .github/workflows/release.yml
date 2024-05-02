@@ -28,7 +28,7 @@ jobs:
       # - name: Run release-it
       #   run: npx release-it
       - name: release-it
-        run: npx release-it --dry-run
+        run: npx release-it 
 
       - name: Extract Release Notes
         id: extract_release_notes
@@ -39,7 +39,7 @@ jobs:
         run: |
           version=$(jq -r '.version' package.json)
           echo "::set-output name=version::$version"
-          
+
       - name: Send to Slack
         run: |
           curl -X POST -H 'Content-type: application/json' --data '{
