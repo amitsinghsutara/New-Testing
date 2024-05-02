@@ -2,7 +2,7 @@ name: Create Release
 
 
 on:
-  release:
+  push:
     branch: main
 
 jobs:
@@ -27,8 +27,8 @@ jobs:
       # - name: Debug Changelog1
       #   run: cat CHANGELOG.md
 
-      # - name: Run release-it
-      #   run: npx release-it
+      - name: Run release-it
+        run: npx release-it
 
       # - name: Debug Changelog
       #   run: cat CHANGELOG.md
