@@ -1,5 +1,13 @@
 
 
+## [1.45.0](https://github.com/amitsinghsutara/New-Testing/compare/1.44.1...1.45.0) (2024-05-02)
+
+
+### Features
+
+* Additional Updates! ([5aacdab](https://github.com/amitsinghsutara/New-Testing/commit/5aacdab9332ae7102fcbca300964c2d4616f4f7a))
+* New try! ([ed898f1](https://github.com/amitsinghsutara/New-Testing/commit/ed898f155108fa99949458eee7c743adc050631b))
+
 ## 1.44.1 (2024-05-02)
 
 
