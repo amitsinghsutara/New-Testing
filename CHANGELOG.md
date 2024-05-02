@@ -1,5 +1,12 @@
 
 
+## [1.36.0](https://github.com/amitsinghsutara/New-Testing/compare/1.35.1...1.36.0) (2024-05-02)
+
+
+### Features
+
+* New changes! ([6d54f1d](https://github.com/amitsinghsutara/New-Testing/commit/6d54f1de2103f5acd684a241b41813b3357e10cb))
+
 ## [1.35.1](https://github.com/amitsinghsutara/New-Testing/compare/1.35.0...1.35.1) (2024-05-02)
 
 
