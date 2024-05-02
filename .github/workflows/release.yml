@@ -49,9 +49,9 @@ jobs:
                 }
               }
             ]
-          }' ${{ secrets.SLACK_WEBHOOK_URL }}
+          }' ${{ secrets.SLACK_WEBHOOK_URL2 }}
         env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          SLACK_WEBHOOK_URL2: ${{ secrets.SLACK_WEBHOOK_URL2 }}
 
       # - name: Create GitHub Release
       #   uses: actions/create-release@v1
