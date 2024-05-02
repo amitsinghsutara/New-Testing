@@ -27,5 +27,5 @@ jobs:
             "text": "New Release Notes:\nVersion: ${{ steps.extract_version_number.outputs.version }}\n${{ steps.extract_release_notes.outputs.release_notes }}"
           }' ${{ secrets.SLACK_WEBHOOK_URL }}
         env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}name: Create Release
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 
